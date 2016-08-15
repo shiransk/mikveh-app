@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MikvehApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% flash.each do |name, message| %>
+    <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <%= message %>
+    </div>
+    <%=  %>
+    <% end %>
+    <div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation"> <%= link_to 'Home', "/" %></li>
+    <%  if current_user %>
+    <li role="presentation"> <%= link_to 'logout', "/logout" %></li>
+    <% else %>
+    <li role="presentation"> <%= link_to 'User Signup', "/new_client" %></li>
+    <li role="presentation"> <%= link_to 'Balanit Signup', "/new_balanit" %></li>
+    <li role="presentation"> <%= link_to 'Login', "/login" %></li>
+    <% end %>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">...</div>
+    <div role="tabpanel" class="tab-pane" id="profile">...</div>
+    <div role="tabpanel" class="tab-pane" id="messages">...</div>
+    <div role="tabpanel" class="tab-pane" id="settings">...</div>
+  </div>
+
+</div>
+    <%= yield %>
+  </body>
+  </html>
