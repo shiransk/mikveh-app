@@ -27,6 +27,7 @@
     <th><%= booking.time %></th>
     <th> date %></th>
     <th> <%= link_to 'Cancel', "/bookings/#{booking.id}", method: :delete %></th>
+    <th> <%= link_to 'Update', "/bookings/#{booking.id}/edit?name=#{booking.user.id}" %></th>
   </tr>
   <% end %>
 </table>

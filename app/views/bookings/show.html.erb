@@ -7,7 +7,9 @@
   </tr>
 
   <rt>
-    <td><%= @booking.mikveh.name %></td>
+  <% if current_user.bookings.any? %>
     <td><%= @booking.time %></td>
+    <td><%= @booking.mikveh.name %></td>
   </rt>
+  <% end %>
 </table>

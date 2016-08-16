@@ -1,0 +1,21 @@
+<%= form_tag "/bookings/#{@booking.id}", method: :patch do %>
+
+
+<div>
+  <%= hidden_field_tag :mikveh_id, current_user.bookings.last.mikveh.id %>
+</div>
+
+<div>
+  <%= hidden_field_tag :user_id, current_user.id %>
+</div>
+
+
+
+<div>
+  <%= label_tag :time %>
+  <%= text_field_tag :time, current_user.bookings.last.time %>
+</div>
+
+<%= submit_tag "Submit" %>
+
+<% end %>

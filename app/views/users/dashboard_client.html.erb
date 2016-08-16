@@ -1,20 +1,13 @@
 <h1>Dashboard</h1>
 <div>
-<table class="table table-hover">
-  <tr>
-    <td>Name</td>
-    <td>Email</td>
-    <td>Phhone</td>
-  </tr>
 
-  <tr>
-    <th><%= current_user.name %></th>
-    <th><%= current_user.email %></th>
-    <th><%= current_user.phone_number %></th>
+ <ul class="info">
+   <li>Name-  <%= current_user.name %></li>
+   <li>Email- <%= current_user.email %> </li>
+   <li>Phone- <%= current_user.phone_number %></li> 
+ </ul>
 
-  </tr>
-</table>
-</div>
+</div>  
 <p class="blue">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
 <p class="blue">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
 
@@ -23,17 +16,17 @@
   <tr>
     <th>Place</th>
     <th>Time</th>
+    <th>Cancel</th>
+    <th>Update time</th>
   </tr>
 
   <rt>
     <td><%= current_user.bookings.last.mikveh.name if current_user.bookings.any? %></td>
     <td><%= current_user.bookings.last.time if current_user.bookings.any?%> </td>
+    <% if current_user.bookings.any?  %>
+    <td> <%= link_to 'Cancel', "/bookings/#{current_user.bookings.last.id}", method: :delete %></td>
+    <td> <%= link_to 'Update', "/bookings/#{current_user.bookings.last.id}/edit"%> </td>
+    <% end %>
   </rt>
 </table>
 </div>
-
-
-
-
-
-<%= link_to "Make apoitment", '/bookings' %>

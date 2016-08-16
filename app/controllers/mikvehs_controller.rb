@@ -14,7 +14,7 @@ class MikvehsController < ApplicationController
     end  
   end
 
-  def show
+  def show  
     @mikveh = Mikveh.find_by(id: params[:id])
   end
 
