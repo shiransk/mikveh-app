@@ -1,15 +1,32 @@
 <h1>Dashboard</h1>
 
+
+
+  <ul class="info">
+    <li>balanit- <%= current_user.name %> </li>
+    <li>Name- <%= @mikveh.name  %></li>
+    <li>location- <%= @mikveh.location %></li>
+    <li>rooms- <%= @mikveh.rooms %></li>
+  </ul>
+
+
+<p class="blue">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+<p class="blue">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+
 <table class="table table-hover">
   <tr>
-    <td>balanit</td>
-    <td>Name</td>
-    <td>location</td>
+    <td>client name</td>
+    <td>time </td>
+    <td>date</td>
+    <td>Cancel Apoitment</td>
   </tr>
 
   <tr>
-    <th><%= current_user.name %></th>
-    <th><%= @mikveh.name  %></th>
-    <th><%= @mikveh.location %></th>
+   <% current_user.mikveh.bookings.each do |booking| %>
+    <th><%= booking.user.name  %></th>
+    <th><%= booking.time %></th>
+    <th> date %></th>
+    <th> <%= link_to 'Cancel', "/bookings/#{booking.id}", method: :delete %></th>
   </tr>
+  <% end %>
 </table>

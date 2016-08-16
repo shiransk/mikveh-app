@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  def new
+  def index
 
   end
 
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @mikveh = Mikveh.find_by(user_id: current_user.id)
     # binding.pry
     else
-      redirect_to '/new_client'
+      redirect_to '/dashboard_client'
     end
   end
 
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
         redirect_to '/mikveh'
       else
         # direct them to search
-      redirect_to '/'
+      redirect_to '/dashboard_client'
       end
     else
       flash[:danger] = "User not created!"

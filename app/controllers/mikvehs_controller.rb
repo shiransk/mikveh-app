@@ -10,7 +10,7 @@ class MikvehsController < ApplicationController
       redirect_to "/mikveh/#{mikveh.id}"
     else
       flash[:danger] = "Mikveh not creted"
-      redirect_to '/'
+      redirect_to '/dashboard_balanit'
     end  
   end
 

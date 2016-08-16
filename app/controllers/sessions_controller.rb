@@ -6,10 +6,15 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:email])
+    # binding.pry
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id 
       flash[:success] = "You are loged in #{user.name}"
-      redirect_to '/'
+      if current_user && current_user.balanit
+        redirect_to '/dashboard_balanit'
+      else
+        redirect_to '/dashboard_client'
+      end
     else 
       flash[:danger] = "Error"
       redirect_to '/login'

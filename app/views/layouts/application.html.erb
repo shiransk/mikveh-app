@@ -21,11 +21,18 @@
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation"> <%= link_to 'Home', "/" %></li>
     <%  if current_user %>
+    <li> <%= link_to "Hello #{current_user.name}" %></li>
     <li role="presentation"> <%= link_to 'logout', "/logout" %></li>
+    <li role="presentation"> <%= link_to 'Book Apoitment', "/bookings" %></li>
     <% else %>
     <li role="presentation"> <%= link_to 'User Signup', "/new_client" %></li>
     <li role="presentation"> <%= link_to 'Balanit Signup', "/new_balanit" %></li>
     <li role="presentation"> <%= link_to 'Login', "/login" %></li>
+    <% end %>
+    <%  if current_user && current_user.balanit %>
+    <li role="presentation"> <%= link_to 'Dashboard', "/dashboard_balanit" %></li>
+    <% elsif current_user %>
+    <li role="presentation"> <%= link_to 'Dashboard', "/dashboard_client" %></li>
     <% end %>
   </ul>
 

@@ -1,17 +1,19 @@
 <%= form_tag "/bookings", method: :post do %>
 
 <div>
-  <%= label_tag :mikveh_id %>
-  <%= text_field_tag :mikveh_id %>
+  <h4>mikvhe <%=collection_select :mikveh , :mikveh_id , Mikveh.all , :id , :name %></h4> 
 </div>
 
 <div>
-  <%= label_tag :user_id %>
-  <%= text_field_tag :user_id  %>
+  <%= hidden_field_tag :user_id, current_user.id %>
 </div>
 
 <div>
   <%= label_tag :time %>
   <%= text_field_tag :time %>
 </div>
+
+<%= submit_tag "Submit" %>
+
+<% end %>
       

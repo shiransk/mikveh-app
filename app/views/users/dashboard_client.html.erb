@@ -1,0 +1,39 @@
+<h1>Dashboard</h1>
+<div>
+<table class="table table-hover">
+  <tr>
+    <td>Name</td>
+    <td>Email</td>
+    <td>Phhone</td>
+  </tr>
+
+  <tr>
+    <th><%= current_user.name %></th>
+    <th><%= current_user.email %></th>
+    <th><%= current_user.phone_number %></th>
+
+  </tr>
+</table>
+</div>
+<p class="blue">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+<p class="blue">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+
+<div>
+  <table class= "table table-hover">
+  <tr>
+    <th>Place</th>
+    <th>Time</th>
+  </tr>
+
+  <rt>
+    <td><%= current_user.bookings.last.mikveh.name if current_user.bookings.any? %></td>
+    <td><%= current_user.bookings.last.time if current_user.bookings.any?%> </td>
+  </rt>
+</table>
+</div>
+
+
+
+
+
+<%= link_to "Make apoitment", '/bookings' %>

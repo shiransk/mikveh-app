@@ -1,0 +1,11 @@
+<h1>Welcome to mikveh App</h1>
+
+<h2>Bellow is the list of avalible mikvehs</h2>
+
+<%= form_tag "/bookings", method: :get do %>
+
+<div>
+  <h4>mikvhe <%=collection_select :mikveh , :mikveh_id , Mikveh.all , :id , :name %></h4> 
+  
+<% end %>
+</div>
