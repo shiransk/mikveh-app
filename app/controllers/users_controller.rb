@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
 
   def index
-
+    
   end
 
   def new_balanit
-
+    @user = User.new 
   end
 
   def new_client
-
+    @user = User.new 
   end
 
   def dashboard_client
@@ -26,11 +26,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(name: params[:name], email: params[:email],phone_number: params[:phone_number], password: params[:password], password_confirmation: params[:password_confirmation], balanit: params[:balanit])
-    if user.save
+    @user = User.new(name: params[:name], email: params[:email],phone_number: params[:phone_number], password: params[:password], password_confirmation: params[:password_confirmation], balanit: params[:balanit])
+    if @user.save
       flash[:success] = "User Created!"
-      session[:user_id] = user.id
-      if user.balanit
+      session[:user_id] = @user.id
+      if @user.balanit
         redirect_to '/mikveh'
       else
         # direct them to search
@@ -38,7 +38,11 @@ class UsersController < ApplicationController
       end
     else
       flash[:danger] = "User not created!"
-      redirect_to '/new_client'
+      if @user.balanit 
+        render :new_balanit  
+      else
+        render :new_client 
+      end
     end
     
   end

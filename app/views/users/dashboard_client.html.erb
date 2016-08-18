@@ -15,14 +15,14 @@
   <table class= "table table-hover">
   <tr>
     <th>Place</th>
-    <th>Time</th>
+    <th>date and time</th>
     <th>Cancel</th>
-    <th>Update time</th>
+    <th>Update date and time</th>
   </tr>
 
   <rt>
     <td><%= current_user.bookings.last.mikveh.name if current_user.bookings.any? %></td>
-    <td><%= current_user.bookings.last.time if current_user.bookings.any?%> </td>
+    <td><%= current_user.bookings.last.date_and_time if current_user.bookings.any?%> </td>
     <% if current_user.bookings.any?  %>
     <td> <%= link_to 'Cancel', "/bookings/#{current_user.bookings.last.id}", method: :delete %></td>
     <td> <%= link_to 'Update', "/bookings/#{current_user.bookings.last.id}/edit"%> </td>
