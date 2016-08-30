@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  def test
+  end 
+
   def index
     
   end
@@ -18,7 +21,7 @@ class UsersController < ApplicationController
 
   def dashboard_balanit
     if current_user && current_user.balanit
-    @mikveh = Mikveh.find_by(user_id: current_user.id)
+      @mikveh = Mikveh.find_by(user_id: current_user.id)
     # binding.pry
     else
       redirect_to '/dashboard_client'

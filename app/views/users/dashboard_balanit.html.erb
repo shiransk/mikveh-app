@@ -3,15 +3,11 @@
 
 
   <ul class="info">
-    <li>balanit- <%= current_user.name %> </li>
-    <li>Name- <%= @mikveh.name  %></li>
-    <li>location- <%= @mikveh.location %></li>
-    <li>rooms- <%= @mikveh.rooms %></li>
+    <li>Balanit- <%= current_user.name.capitalize %> </li>
+    <li>Mikveh- <%= @mikveh.name.capitalize  %></li>
+    <li>Location- <%= @mikveh.location.capitalize %></li>
+    <li>Rooms- <%= @mikveh.rooms %></li>
   </ul>
-
-
-<p class="blue">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-<p class="blue">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
 
 <table class="table table-hover">
   <tr>
@@ -23,7 +19,7 @@
 
   <tr>
    <% current_user.mikveh.bookings.each do |booking| %>
-    <th><%= booking.user.name  %></th>
+    <th><%= booking.user.name.capitalize  %></th>
     <th><%= booking.date_and_time %></th>
     <th> <%= link_to 'Cancel', "/bookings/#{booking.id}", method: :delete %></th>
     <th> <%= link_to 'Update', "/bookings/#{booking.id}/edit" %></th>

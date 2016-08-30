@@ -1,19 +1,48 @@
 <%= form_tag "/bookings", method: :post do %>
 
 <div>
-  <h4>mikvhe <%=collection_select :mikveh , :mikveh_id , Mikveh.all , :id , :name %></h4> 
+<% if current_user && current_user.balanit %>
+    <% hidden_field_tag :mikveh_id, current_user.mikveh.id %>
+<% else %>
+    <h4>mikvhe <%=collection_select :mikveh , :mikveh_id , Mikveh.all , :id , :name %></h4> 
+    <% end %>
 </div>
 
 <div>
-  <%= hidden_field_tag :user_id, current_user.id %>
+  <% if current_user && current_user.balanit %>
+      <h4>clients <%=collection_select :user , :user_id , User.all , :id , :name %> </h4> 
+  <% else %>
+      <%= hidden_field_tag :user_id, current_user.id %>
+  <% end %>
+</div>
+
+<div>
+<% select_tag(:times, options_for_select([["6PM", "2016-08-25 11:45:00 UTC"], ["Slot 2",1], ["Slot 3", 2]])) %>
 </div>
 
 <div>
   <%= label_tag :date_and_time %>
-  <%= text_field_tag :date_and_time %>
+  <div class='input-group date' id='datetimepicker11'>
+    <%= text_field_tag :date_and_time,'', class: 'form-control' %>
+    <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar">
+        </span>
+    </span>
+  </div>
+
 </div>
+
 
 <%= submit_tag "Submit" %>
 
 <% end %>
-      
+
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker11').datetimepicker({
+            daysOfWeekDisabled: [0, 6],
+            format: 'YYYY-MM-DD HH:mm'
+        });
+    });
+</script>

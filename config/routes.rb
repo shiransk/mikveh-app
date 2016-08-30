@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 #users 
+get '/test', to: 'users#test'
 get '/', to: 'users#index'
 get '/index', to: 'users#index'
 get '/dashboard_balanit', to: 'users#dashboard_balanit'
@@ -10,13 +11,12 @@ get '/new_balanit', to:'users#new_balanit'
 post '/users', to:'users#create'
 
 #sessions
-
 get '/login', to: 'sessions#new'
 post '/login', to: 'sessions#create'
 get '/logout', to: 'sessions#destroy'
 
 #booking
- get '/bookings', to: 'bookings#new'
+ get '/bookings/new', to: 'bookings#new'
  post '/bookings', to: 'bookings#create'
  patch '/bookings/:id', to: 'bookings#update'
  get 'bookings/:id/edit', to: 'bookings#edit'
