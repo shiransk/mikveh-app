@@ -11,7 +11,7 @@
   <rt>
   <% if current_user.bookings.any? %>
     <td><%= @booking.mikveh.name %></td>
-    <td><%= @booking.date_and_time %></td>
+    <td><%= @booking.start_time %></td>
     <td> <%= link_to 'Cancel', "/bookings/#{current_user.bookings.last.id}", method: :delete %></td>
     <td> <%= link_to 'Update', "/bookings/#{current_user.bookings.last.id}/edit"%>
   </rt>

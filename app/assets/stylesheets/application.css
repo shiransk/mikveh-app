@@ -16,6 +16,7 @@
  *= require jquery.fancybox
  *= require style
  *= require bootstrap-datetimepicker
+ *= require simple_calendar
  *= require ie-older
  *= require no-js
  *= require_tree .

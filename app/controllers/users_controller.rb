@@ -16,10 +16,11 @@ class UsersController < ApplicationController
   end
 
   def dashboard_client
-
+     @bookings = Booking.all 
   end
 
   def dashboard_balanit
+    @bookings = Booking.all 
     if current_user && current_user.balanit
       @mikveh = Mikveh.find_by(user_id: current_user.id)
     # binding.pry

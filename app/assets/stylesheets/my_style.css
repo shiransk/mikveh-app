@@ -11,3 +11,11 @@
   color: red;
   font-weight: bolder;
 }
+
+#footer {
+  padding: 0;
+}
+
+#navigation {
+  padding: 10px !important;
+}
