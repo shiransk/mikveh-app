@@ -1,7 +1,11 @@
-class BookingsController < ApplicationController
+  class BookingsController < ApplicationController
 
-  def new 
-     
+  def new
+    if params[:time]
+      @booking_time = params[:time]
+    else
+      @booking_time = ''
+    end
   end
 
   def create
@@ -23,9 +27,9 @@ class BookingsController < ApplicationController
     if booking && booking.save 
       flash[:success] = "apoitment was booked!"
       if current_user.balanit
-        redirect_to '/dashboard_balanit'
+        redirect_to '/calendar'
       else
-        redirect_to "/bookings/#{booking.id}"
+        redirect_to "/dashboard_client"
       end
     else
       flash[:danger] = "Booking Failed!!!"

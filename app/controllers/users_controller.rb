@@ -15,8 +15,16 @@ class UsersController < ApplicationController
     @user = User.new 
   end
 
+  def calendar
+    if current_user && current_user.balanit
+      @bookings = current_user.mikveh.bookings.all
+
+      @start_time = Time.parse("18:00:00")
+    end 
+  end
+
   def dashboard_client
-     @bookings = Booking.all 
+     @bookings = current_user.bookings.all 
   end
 
   def dashboard_balanit

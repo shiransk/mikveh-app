@@ -19,3 +19,15 @@
 #navigation {
   padding: 10px !important;
 }
+
+.blue-booking {
+  color: blue;
+}
+
+.red-booking {
+  color: red;
+  font-weight: bold;
+
+}.green-booking {
+  color: green !important;
+}

@@ -6,6 +6,7 @@ get '/', to: 'users#index'
 get '/index', to: 'users#index'
 get '/dashboard_balanit', to: 'users#dashboard_balanit'
 get '/dashboard_client', to: 'users#dashboard_client'
+get '/calendar', to: 'users#calendar'
 get '/new_client', to:'users#new_client'
 get '/new_balanit', to:'users#new_balanit'
 post '/users', to:'users#create'
@@ -27,5 +28,11 @@ get '/logout', to: 'sessions#destroy'
 get '/mikveh', to: 'mikvehs#new'
 post '/mikveh', to: 'mikvehs#create'
 get '/mikveh/:id', to: 'mikvehs#show'
+
+  namespace :api do 
+    namespace :v1 do 
+      get '/mikveh', to: 'mikvehs#index'
+    end
+  end
 
 end
