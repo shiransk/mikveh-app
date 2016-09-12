@@ -14,9 +14,8 @@
   <% bookings.each do |booking| %>
     <div>
        <div class="blue-booking"><%= booking.mikveh.name %></div> 
-       <div class="blue-booking"><%= booking.user.name %></div> 
-      <div class="blue-booking"><%= booking.start_time.strftime("%I:%M:%S %p") %></div> 
-      <div class="red-booking"><%= link_to 'Cancel', "/bookings/#{current_user.bookings.last.id}", method: :delete %></div> 
+      <div class="blue-booking"><%= booking.start_time.strftime("%H:%M:%p") %></div> 
+      <div class="red-booking"><%= link_to 'Cancel', "/bookings/#{booking.id}", method: :delete %></div> 
     </div>
   <% end %>
 <% end %> 

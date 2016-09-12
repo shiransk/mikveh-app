@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 #users 
-get '/test', to: 'users#test'
+get '/client_calender', to: 'users#client_calender'
 get '/', to: 'users#index'
 get '/index', to: 'users#index'
 get '/dashboard_balanit', to: 'users#dashboard_balanit'

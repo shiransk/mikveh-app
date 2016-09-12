@@ -14,11 +14,29 @@
 
   <% bookings.each do |booking| %>
     <div>
-      <%= booking.user.name %>
-      <%= booking.start_time.strftime("%I:%M:%S %p") %>
-      <%= link_to 'Cancel', "/bookings/#{booking.id}", method: :delete %>
+      <% booking.user.name %>
+      <% booking.start_time.strftime("%I:%M:%S %p") %>
+      <% link_to 'Cancel', "/bookings/#{booking.id}", method: :delete %>
     </div>
   <% end %>
+
+  <% slot_start_time = DateTime.new(date.year, date.month, date.day, @start_time.hour, @start_time.min, @start_time.sec, @start_time.zone) %>
+
+  <% 10.times do %>
+    <% formatted_date_time = slot_start_time.strftime("%Y-%m-%d %H:%M") %>
+    <% pretty_date_time = slot_start_time.strftime("%H:%M:%p") %>
+
+    <% booking = current_user.mikveh.bookings.find_by(start_time: formatted_date_time) %>
+
+      <% if booking %>
+        <%= link_to booking.user.name, "/bookings/#{booking.id}", class: "red-booking" %>
+      <% else %>
+          <%= link_to pretty_date_time, "/bookings/new?time=#{formatted_date_time}" ,class: "green-booking"%>
+      <% end %>
+        <% slot_start_time += 30.minutes %>
+      <br/>
+  <% end %>
+
 <% end %>
 
 <table class="table table-hover">
@@ -26,7 +44,6 @@
     <th>client name</th>
     <th>Date & Time </th>
     <th>Cancel Apoitment</th>
-    <th>Chanch   Apoitment</th>
   </tr>
 
   <tr>
@@ -34,7 +51,6 @@
     <td><%= booking.user.name.capitalize  %></td>
     <td><%= booking.start_time %></td>
     <td> <%= link_to 'Cancel', "/bookings/#{booking.id}", method: :delete %></td>
-    <td> <%= link_to 'Update', "/bookings/#{booking.id}/edit" %></td>
   </tr>
   <% end %>
 </table>

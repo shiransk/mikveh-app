@@ -33,5 +33,8 @@
 //= require script
 //= require html5
 //= require respond.min
-//= require turbolinks
+//= require angular.min
+//= require angular-animate
+//= require ng-map
+//= require app
 //= require_tree .

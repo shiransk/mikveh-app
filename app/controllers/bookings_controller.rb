@@ -3,6 +3,8 @@
   def new
     if params[:time]
       @booking_time = params[:time]
+      @mikveh_id = params[:mikveh_id]
+      @clean_time = DateTime.parse(@booking_time)
     else
       @booking_time = ''
     end
@@ -12,14 +14,16 @@
     if current_user
       starting_time = DateTime.parse(params[:start_time])
       end_time = starting_time + 29.minutes
+
       clashed_bookings = Booking.where(start_time: starting_time..end_time)
+
       clashed_bookings2 = Booking.where(start_time: starting_time - 29.minutes..starting_time)
 
       if clashed_bookings.empty? && clashed_bookings2.empty?
         if current_user.balanit
           booking = Booking.new(user_id: params[:user][:user_id], start_time: params[:start_time],mikveh_id: current_user.mikveh.id)
         else
-          booking = Booking.new(user_id: params[:user_id], start_time: params[:start_time],mikveh_id: params[:mikveh][:mikveh_id])
+          booking = Booking.new(user_id: params[:user_id], start_time: params[:start_time],mikveh_id: params[:mikveh_id])
         end
       end
     end
@@ -66,7 +70,11 @@
   def destroy
     Booking.find_by(id: params[:id]).destroy
     flash[:danger] = 'Apoitment was canceld'
-    redirect_to '/dashboard_balanit'
+    if current_user && current_user.balanit
+      redirect_to '/dashboard_balanit'
+    else
+      redirect_to '/dashboard_client'
+    end
   end
 
 end

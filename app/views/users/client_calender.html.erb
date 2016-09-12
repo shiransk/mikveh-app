@@ -1,0 +1,38 @@
+
+<h3>Mikveh: <%= @mikveh.name %></h3>
+
+<!-- Calendar !-->
+<%= week_calendar number_of_weeks: 3,  events: @bookings do |date, bookings| %>
+  <%= date %>
+  <br />
+
+  <% bookings.each do |booking| %>
+    <div> 
+      <div><% booking.start_time.strftime("%H:%M:%S %p") %></div>
+<!--       <div><%= link_to 'Cancel',"/bookings/#{booking.id}", method: :delete %></div>   --> 
+    </div>
+ <% end %>
+
+<!-- Creating Slots !-->  
+    <% slot_start_time = DateTime.new(date.year, date.month, date.day, @start_time.hour, @start_time.min, @start_time.sec, @start_time.zone) %>
+
+    <% 10.times do %>
+      <% formatted_date_time = slot_start_time.strftime("%Y-%m-%d %H:%M") %>
+      <% pretty_date_time = slot_start_time.strftime("%H:%M: %p") %>
+
+      <% booking = @mikveh.bookings.find_by(start_time: formatted_date_time,) %>
+
+        <% if booking %>
+          <%= link_to 'Booked', "/bookings/#{booking.id}", class: "red-booking" %>
+        <% else %>
+           <% if current_user %>
+            <%= link_to pretty_date_time, "/bookings/new?time=#{formatted_date_time}&mikveh_id=#{@mikveh.id}" ,class: "green-booking"%>
+            <% else %>
+              <%= link_to pretty_date_time, "/login" ,class: "green-booking" %>
+            <% end %>
+        <% end %>
+          <% slot_start_time += 30.minutes %>
+        <br/>
+    <% end %>
+
+<% end %>

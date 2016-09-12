@@ -5,6 +5,7 @@
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfsleNm3WQA0CVYiXRQqcncx0gP3VoR_s"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
@@ -20,16 +21,14 @@
                 
                 <div class="navbar-brand">
                   <%  if current_user %>
-                  <li> <%= link_to "Hello #{current_user.name}" %></li>
+                  <li class="nav navbar-nav"> <%= link_to "Hello #{current_user.name}" %></li>
                   <% end %>
                 </div>
                 
                 <ul class="nav navbar-nav">
-                  <li role="presentation"> <%= link_to 'Home', "/" %></li>
-                  <li role="presentation"> <%= link_to 'Test', "/test" %></li>
+                  <li role="presentation"> <%= link_to 'Find A Mikveh', "/" %></li>
                   <%  if current_user %>
                   <li role="presentation"> <%= link_to 'logout', "/logout" %></li>
-                  <li role="presentation"> <%= link_to 'Book Apoitment', "/bookings/new" %></li>
                   <% else %>
                   <li role="presentation"> <%= link_to 'User Signup', "/new_client" %></li>
                   <li role="presentation"> <%= link_to 'Balanit Signup', "/new_balanit" %></li>
@@ -104,24 +103,24 @@
                 </div>
                 
                 <div class="col-sm-4 widget"> <!-- 2 -->
-                  <h4 class="widget-title">Need Helps?</h4>
+                  <h4 class="widget-title"></h4>
                     <div class="row">
                       <div class="col-sm-6">
                           <ul>
-                              <li><a href="#">About Us</a></li>
+                              <li><a href="#"></a></li>
                             </ul>
                         </div>
                         <div class="col-sm-6">
                           <ul>
-                                <li><a href="#">Dribbble</a></li>
+                                <li><a href="#"></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-sm-4 widget"> <!-- 3 -->
-                    <h4 class="widget-title">Contact Us</h4>
-                  p>
+                    <h4 class="widget-title"></h4>
+                  
                 </div>
                 
             </div>
@@ -130,11 +129,11 @@
         </div>
         <!-- .container end -->
         
-        <div class="footer-copyright">
+<!--         <div class="footer-copyright">
           <div class="container">
                 <p>&copy; 2016 Copyrights by <a href="http://affapress.com" target="_blank">Affapress</a> - All rights reserved.</p>
             </div>
-        </div>
+        </div> -->
         
     </footer>
     <!-- #footer end -->

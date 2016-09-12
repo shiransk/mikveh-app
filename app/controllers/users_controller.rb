@@ -1,6 +1,9 @@
-class UsersController < ApplicationController
+ class UsersController < ApplicationController
 
-  def test
+  def client_calender
+    @bookings = Booking.all
+    @start_time = Time.zone.parse("18:00:00 ")
+    @mikveh = Mikveh.find_by(id: params[:id])
   end 
 
   def index
@@ -28,13 +31,13 @@ class UsersController < ApplicationController
   end
 
   def dashboard_balanit
-    @bookings = Booking.all 
-    if current_user && current_user.balanit
-      @mikveh = Mikveh.find_by(user_id: current_user.id)
-    # binding.pry
-    else
-      redirect_to '/dashboard_client'
-    end
+    @bookings = current_user.mikveh.bookings.all 
+    @start_time = Time.parse("18:00:00")
+      if current_user && current_user.balanit
+        @mikveh = Mikveh.find_by(user_id: current_user.id)
+      else
+        redirect_to '/dashboard_client'
+      end
   end
 
   def create
