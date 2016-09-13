@@ -31,7 +31,7 @@
     if booking && booking.save 
       flash[:success] = "apoitment was booked!"
       if current_user.balanit
-        redirect_to '/calendar'
+        redirect_to '/calendar' 
       else
         redirect_to "/dashboard_client"
       end
