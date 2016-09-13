@@ -1,5 +1,7 @@
   class BookingsController < ApplicationController
 
+  before_action :is_user?, except: [:new ]
+
   def new
     if params[:time]
       @booking_time = params[:time]

@@ -1,5 +1,7 @@
  class UsersController < ApplicationController
 
+  # before_action :is_admin?, except: [:client_calender,:index ]
+
   def client_calender
     @bookings = Booking.all
     @start_time = Time.zone.parse("18:00:00 ")

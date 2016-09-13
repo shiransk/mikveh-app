@@ -10,6 +10,21 @@ class ApplicationController < ActionController::Base
   def human_time(time)
     time.strftime("%H:%M:%p")
   end 
-  
+
+  def is_admin?
+    if current_user && current_user.balanit
+      #nothing
+    else
+      redirect_to '/'
+    end
+  end
+
+  def is_user?
+    if current_user
+      #nothing
+    else
+      redirect_to '/'
+    end
+  end
   
 end
