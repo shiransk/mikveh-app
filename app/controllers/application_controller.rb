@@ -11,5 +11,4 @@ class ApplicationController < ActionController::Base
     time.strftime("%H:%M:%p")
   end 
   
-  
 end

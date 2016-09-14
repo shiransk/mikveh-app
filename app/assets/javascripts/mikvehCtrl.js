@@ -2,46 +2,47 @@
   "use strict";
   angular.module("app").controller("mikvehCtrl", function($scope, $http, NgMap) {
 
-  NgMap.getMap().then(function(map) {
-        function setMarker(map, position, title, content) {
-          var marker;
-          var markerOptions = {
-              position: position,
-              map: map,
-              title: title,
-              icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png'
-          };
+    $scope.maps = function(){
+          var locations = [
+      ['Bondi Beach', -33.890542, 151.274856, 4],
+      ['Coogee Beach', -33.923036, 151.259052, 5],
+      ['Cronulla Beach', -34.028249, 151.157507, 3],
+      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+      ['Maroubra Beach', -33.950198, 151.259302, 1]
+    ];
 
-          marker = new google.maps.Marker(markerOptions);
-          markers.push(marker); // add marker to array
-          
-          google.maps.event.addListener(marker, 'click', function () {
-              // close window if not undefined
-              if (infoWindow !== void 0) {
-                  infoWindow.close();
-              }
-              // create new window
-              var infoWindowOptions = {
-                  content: content
-              };
-              infoWindow = new google.maps.InfoWindow(infoWindowOptions);
-              infoWindow.open(map, marker);
-          });
-        } 
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 10,
+      center: new google.maps.LatLng(-33.92, 151.25),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
 
-    // show the map and place some markers
-    initMap();
+    var infowindow = new google.maps.InfoWindow();
 
-    setMarker(map, new google.maps.LatLng(51.508515, -0.125487), 'London', 'Just some content');
-    setMarker(map, new google.maps.LatLng(52.370216, 4.895168), 'Amsterdam', 'More content');
-    setMarker(map, new google.maps.LatLng(48.856614, 2.352222), 'Paris', 'Text here');
+    var marker, i;
 
-  });
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+    }
+
+
    
   $scope.setup = function () {
     $http.get("/api/v1/mikveh.json").then(function(response) {
       $scope.mikvehs = response.data;
     });
+    $scope.maps();
   }
 
   $scope.selectedItemChanged = function(mikvehs) {
@@ -56,24 +57,6 @@
       $scope.orderAttr = attr;
     }
   }
-
-
-
-// app.controller('MyController', function(NgMap) {
-//   NgMap.getMap().then(function(map) {
-//     console.log(map.getCenter());
-//     console.log('markers', map.markers);
-//     console.log('shapes', map.shapes);
-//   });
-// });
-
-
-
-
-
-
-
-
 
 
   window.$scope = $scope;

@@ -30,6 +30,7 @@
 
     if booking && booking.save 
       flash[:success] = "apoitment was booked!"
+      UserMailer.booking_email(current_user).deliver_later
       if current_user.balanit
         redirect_to '/calendar' 
       else
@@ -70,6 +71,7 @@
   def destroy
     Booking.find_by(id: params[:id]).destroy
     flash[:danger] = 'Apoitment was canceld'
+    UserMailer.cancel_boooking_email(current_user).deliver_later
     if current_user && current_user.balanit
       redirect_to '/dashboard_balanit'
     else
