@@ -49,7 +49,7 @@
         redirect_to '/mikveh'
       else
         # direct them to search
-      redirect_to '/dashboard_client'
+        redirect_to '/dashboard_client'
       end
     else
       flash[:danger] = "User not created!"

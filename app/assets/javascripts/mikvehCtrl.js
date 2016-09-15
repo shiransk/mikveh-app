@@ -1,10 +1,10 @@
 (function () {
   "use strict";
-  angular.module("app").controller("mikvehCtrl", function($scope, $http, NgMap) {
+  angular.module("app").controller("mikvehCtrl", function($scope, $http) {
 
     $scope.maps = function(){
           var locations = [
-      ['Bondi Beach', -33.890542, 151.274856, 4],
+      ['Am Echad', 37.2895373, -121.9127035],
       ['Coogee Beach', -33.923036, 151.259052, 5],
       ['Cronulla Beach', -34.028249, 151.157507, 3],
       ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
