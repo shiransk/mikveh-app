@@ -20,18 +20,17 @@
 
   def calendar
     if current_user && current_user.balanit
-      @bookings = current_user.mikveh.bookings.all
-
+      @bookings = current_user.mikveh.bookings.eager_load(:user)
       @start_time = Time.parse("18:00:00")
     end 
   end
 
   def dashboard_client
-     @bookings = current_user.bookings.all 
+     @bookings = current_user.bookings
   end
 
   def dashboard_balanit
-    @bookings = current_user.mikveh.bookings.all 
+    @bookings = current_user.mikveh.bookings
     @start_time = Time.parse("18:00:00")
       if current_user && current_user.balanit
         @mikveh = Mikveh.find_by(user_id: current_user.id)
@@ -45,11 +44,12 @@
     if @user.save
       flash[:success] = "User Created!"
       session[:user_id] = @user.id
+      UserMailer.welcome_email(@user).deliver_now
       if @user.balanit
         redirect_to '/mikveh'
       else
         # direct them to search
-      redirect_to '/dashboard_client'
+        redirect_to '/dashboard_client'
       end
     else
       flash[:danger] = "User not created!"

@@ -47,6 +47,15 @@
   animation: fadeOut 1s;
 }
 
+
+.center {
+    margin: auto;
+    width: 50%;
+    
+
+}
+
+
 html {
     position: relative;
     min-height: 100%;

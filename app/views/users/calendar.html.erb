@@ -12,7 +12,7 @@
 <!--       <div><%= link_to 'Cancel',"/bookings/#{booking.id}", method: :delete %></div>   --> 
     </div>
  <% end %>
-
+ 
 <!-- Creating Slots !-->
     <% slot_start_time = DateTime.new(date.year, date.month, date.day, @start_time.hour, @start_time.min, @start_time.sec, @start_time.zone) %>
 
