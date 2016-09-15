@@ -4,8 +4,6 @@
 
 <div ng-app="app">
   <div ng-controller="mikvehCtrl" ng-init="setup()">
-   <!-- <div id="map" style="width: 500px; height: 400px;"></div> -->
-
 
    Search <input ng-model="nameAndLocation" list="names">
      <datalist id="names">
@@ -26,6 +24,7 @@
         <td class="red-booking"><%= link_to 'Check Avilibilaty', "/client_calender?id={{mikveh.id}}" %></td>
       </tr>
     </table>
+       <div id="map" style="width: 500px; height: 400px;"></div>
 
   </div>
 </div>
