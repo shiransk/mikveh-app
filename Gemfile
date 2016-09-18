@@ -7,6 +7,9 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg', '~> 0.18'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails'
+gem 'carrierwave'
+gem 'fog'
+gem 'figaro'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem "simple_calendar", "~> 2.0"

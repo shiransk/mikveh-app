@@ -8,6 +8,7 @@
           <th>rooms</th>
           <th>Check Avilibilaty</th>
         </tr>
+
         <tr>
           <td><%= @mikveh.name  %></td>
           <td><%= @mikveh.location  %></td>
@@ -20,6 +21,10 @@
         <div id="map_show" style="width: 500px; height: 400px;"></div>
       </div>
 </div>
+
+<p>
+  <%= image_tag @mikveh.image_url.to_s %>
+</p>
 
 <script type="text/javascript">
   

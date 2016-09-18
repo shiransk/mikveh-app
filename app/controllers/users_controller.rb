@@ -43,7 +43,7 @@
   end
 
   def create
-    @user = User.new(name: params[:name], email: params[:email],phone_number: params[:phone_number], password: params[:password], password_confirmation: params[:password_confirmation], balanit: params[:balanit])
+    @user = User.new(name: params[:name], email: params[:email],phone_number: params[:phone_number], password: params[:password], password_confirmation: params[:password_confirmation], balanit: params[:balanit], image: params[:image])
     if @user.save
       flash[:success] = "User Created!"
       session[:user_id] = @user.id

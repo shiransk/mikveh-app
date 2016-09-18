@@ -4,7 +4,7 @@ class MikvehsController < ApplicationController
   end
 
   def create
-    mikveh = Mikveh.new(name: params[:name], location: params[:location], rooms: params[:rooms], user_id: params[:user_id])
+    mikveh = Mikveh.new(name: params[:name], location: params[:location], rooms: params[:rooms], user_id: params[:user_id], image: params[:image])
     if mikveh.save
       flash[:success] = "Mikveh created!"
       redirect_to "/mikveh/#{mikveh.id}"

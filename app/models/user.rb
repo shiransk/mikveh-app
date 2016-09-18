@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   has_many :bookings
   has_one :mikveh
+  mount_uploader :image, ImageUploader
   
   validates :email, uniqueness: true
   validates :email, presence: true
