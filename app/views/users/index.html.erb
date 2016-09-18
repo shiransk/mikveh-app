@@ -1,16 +1,22 @@
 <h1 class="animated bounce">Welcome to mikveh App</h1>
 
-<h2>Bellow is the list of avalible mikvehs</h2>
+<div class="row">
+  <div class="col-md-4"></div>
 
 <div ng-app="app">
   <div ng-controller="mikvehCtrl" ng-init="setup()">
    <!-- <div id="map" style="width: 500px; height: 400px;"></div> -->
 
-
+<ul class="nav nav-tabs center_tabs" >
+  <li role="presentation" class="active"><a href="/">List View</a></li>
+  <li role="presentation" class="active"><a href="/index_map">Map View</a></li>
+</ul>
+  <div>
    Search <input ng-model="nameAndLocation" list="names">
      <datalist id="names">
        <option ng-repeat="mikveh in mikvehs">{{mikveh.name}}</option>
-     </datalist>
+     </datalist>  
+  </div>
 
     <table class="table table-hover">
       <tr>
@@ -30,7 +36,7 @@
   </div>
 </div>
 
-
+</div>
 
 
 <!-- 

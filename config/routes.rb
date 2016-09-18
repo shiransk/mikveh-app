@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 #users 
 get '/client_calender', to: 'users#client_calender'
 get '/', to: 'users#index'
+get '/index_map', to: 'users#index_map'
 get '/index', to: 'users#index'
 get '/dashboard_balanit', to: 'users#dashboard_balanit'
 get '/dashboard_client', to: 'users#dashboard_client'
