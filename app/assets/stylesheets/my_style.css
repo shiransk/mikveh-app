@@ -51,8 +51,14 @@
 .center {
     margin: auto;
     width: 50%;
-    
+  
+}
 
+.center_tabs {
+    padding: 20px;
+    text-align: center;
+    display: inline-block;
+    color: #337AB7;
 }
 
 

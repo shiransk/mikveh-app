@@ -10,6 +10,9 @@
     
   end
 
+  def index_map
+  end
+
   def new_balanit
     @user = User.new 
   end
