@@ -1,7 +1,8 @@
 <h1>Hello <%= @user.name %></h1>
 <p>
   You have successfully set up an apoitment,
-  apoitment time and date: <%= @user.bookings.last.start_time %>.<br>
+  apoitment time and date: 
+  <%= (DateTime.parse(@user.bookings.last.start_time.to_s)).strftime("%Y-%m-%d %H:%M") %>.<br>
 </p>
 
 <p>Thanks for making apoitment and have a great day!</p>

@@ -13,7 +13,7 @@
 
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 8,
-      center: new google.maps.LatLng(37.4351753, -121.927035),
+      center: new google.maps.LatLng(38.7749295, -123.21941550000001),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
@@ -31,6 +31,7 @@
         return function() {
           infowindow.setContent(locations[i].name);
           infowindow.open(map, marker);
+          // window.location.href = locations[i].name
         }
       })(marker, i));
     }

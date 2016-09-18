@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
 
   def human_time(time)
     time.strftime("%H:%M:%p")
-  end 
+  end
+
+   
   
 end

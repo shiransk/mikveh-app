@@ -15,9 +15,9 @@
       starting_time = DateTime.parse(params[:start_time])
       end_time = starting_time + 29.minutes
 
-      clashed_bookings = Booking.where(start_time: starting_time..end_time)
+      clashed_bookings = Booking.where(mikveh_id: params[:mikveh_id], start_time: starting_time..end_time)
 
-      clashed_bookings2 = Booking.where(start_time: starting_time - 29.minutes..starting_time)
+      clashed_bookings2 = Booking.where(mikveh_id: params[:mikveh_id], start_time: starting_time - 29.minutes..starting_time)
 
       if clashed_bookings.empty? && clashed_bookings2.empty?
         if current_user.balanit

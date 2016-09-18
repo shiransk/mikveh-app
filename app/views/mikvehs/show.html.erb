@@ -1,13 +1,48 @@
-<table class="table table-hover">
-  <tr>
-    <td>Name</td>
-    <td>location</td>
-    <td>rooms</td>
-  </tr>
+<div ng-app="app" class="row" ng-controller="mikvehCtrl" ng-init="setup()">
+  <div class="col-md-1"></div>
+    <div class="col-md-5">
+      <table class="table table-hover">
+        <tr>
+          <th>Name</th>
+          <th>location</th>
+          <th>rooms</th>
+          <th>Check Avilibilaty</th>
+        </tr>
+        <tr>
+          <td><%= @mikveh.name  %></td>
+          <td><%= @mikveh.location  %></td>
+          <td><%= @mikveh.rooms %></td>
+          <td class="red-booking"><%= link_to 'Check Avilibilaty', "/client_calender?id=#{@mikveh.id}" %></td>
+        </tr>
+      </table>
+    </div>
+      <div class="col-md-5">
+        <div id="map_show" style="width: 500px; height: 400px;"></div>
+      </div>
+</div>
 
-  <tr>
-    <th><%= @mikveh.name  %></th>
-    <th><%= @mikveh.location  %></th>
-    <th><%= @mikveh.rooms %></th>
-  </tr>
-</table>
+<script type="text/javascript">
+  
+  var map = new google.maps.Map(document.getElementById('map_show'), {
+    zoom: 10,
+    center: new google.maps.LatLng(<%= @mikveh.latitude %>, <%= @mikveh.longitude %>),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+
+  var infowindow = new google.maps.InfoWindow();
+
+  var marker, i;
+
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(<%= @mikveh.latitude %>, <%= @mikveh.longitude %>),
+      map: map
+    });
+
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      return function() {
+        infowindow.setContent('<%= @mikveh.name %>');
+        infowindow.open(map, marker);
+      }
+    })(marker, i));
+
+</script>

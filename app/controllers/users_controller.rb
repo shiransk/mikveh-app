@@ -47,7 +47,7 @@
     if @user.save
       flash[:success] = "User Created!"
       session[:user_id] = @user.id
-      UserMailer.welcome_email(@user).deliver_now
+      UserMailer.welcome_email(@user).deliver_later
       if @user.balanit
         redirect_to '/mikveh'
       else
