@@ -29,7 +29,7 @@
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-          infowindow.setContent(locations[i].name);
+          infowindow.setContent("<a href='/mikveh/" + locations[i].id + "''>" + locations[i].name + "</a>");
           infowindow.open(map, marker);
           // window.location.href = locations[i].name
         }

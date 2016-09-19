@@ -11,6 +11,15 @@ class ApplicationController < ActionController::Base
     time.strftime("%H:%M:%p")
   end
 
-   
-  
+  def check_mikveh
+    if current_user && current_user.balanit 
+      if current_user.mikveh 
+
+      else
+        flash[:danger] = "Must Register Mikveh to continue"
+        redirect_to '/mikveh'
+      end
+    end
+  end
+
 end

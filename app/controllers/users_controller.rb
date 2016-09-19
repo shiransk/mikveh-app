@@ -1,5 +1,7 @@
  class UsersController < ApplicationController
 
+before_action :check_mikveh
+
   def client_calender
     @bookings = Booking.all
     @start_time = Time.zone.parse("18:00:00 ")
@@ -7,10 +9,11 @@
   end 
 
   def index
-    
+
   end
 
   def index_map
+
   end
 
   def new_balanit

@@ -8,8 +8,8 @@
 
       <div class="container">
         <ul class="nav nav-tabs">
-          <li class="nav"><a href="#B" data-toggle="tab">List View</a></li>
-          <li class="nav"><a href="#C" data-toggle="tab" id="map_tab">Map View</a></li>
+          <li class="nav blue-nav"><a href="#B" data-toggle="tab">List View</a></li>
+          <li class="nav blue-nav"><a href="#C" data-toggle="tab" id="map_tab">Map View</a></li>
         </ul>
 
         <div class="tab-content">
@@ -26,14 +26,12 @@
               <th ng-click="sortByAttr('name')">Mikveh Name</th>
               <th ng-click="sortByAttr('location')">Mikveh Location</th>
               <th>Mikveh Houers</th>
-              <th>Mikveh Information</th>
               <th>Pick This Mikveh</th>
             </tr>
             <tr ng-repeat="mikveh in mikvehs | filter: nameAndLocation | orderBy: orderAttr:desc" >
-              <td>{{mikveh.name}}</td>
+              <td><%= link_to "{{mikveh.name}}", "/mikveh/{{mikveh.id}}" %></td>
               <td>{{mikveh.location}}</td>
               <td>18:00PM - 10:30PM</td>
-              <td><%= link_to 'About Mikveh', "/mikveh/{{mikveh.id}}" %></td>
               <td class="red-booking"><%= link_to 'Check Avilibilaty', "/client_calender?id={{mikveh.id}}" %></td>
             </tr>
           </table>

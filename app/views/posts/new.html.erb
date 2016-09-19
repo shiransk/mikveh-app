@@ -1,0 +1,15 @@
+<%= form_tag '/posts', method: :post do %>
+
+<div >
+  <%= label_tag :subject %>
+  <%= text_field_tag :subject, '', class: "form-control"  %>
+</div>
+
+<div>
+  <%= label_tag :text %>
+  <%= text_field_tag :text, '', class: 'form-control' %>
+</div>
+
+<%= submit_tag "Submit!" %>
+
+<% end %>

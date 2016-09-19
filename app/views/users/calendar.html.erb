@@ -18,12 +18,12 @@
 
     <% 10.times do %>
       <% formatted_date_time = slot_start_time.strftime("%Y-%m-%d %H:%M") %>
-      <% pretty_date_time = slot_start_time.strftime("%H:%M:%p") %>
+      <% pretty_date_time = slot_start_time.strftime("%H:%M") %>
 
       <% booking = current_user.mikveh.bookings.find_by(start_time: formatted_date_time,) %>
 
         <% if booking %>
-          <%= link_to booking.user.name, "/bookings/#{booking.id}", class: "red-booking" %>
+          <%= link_to "#{booking.start_time.strftime("%H:%M")} - #{booking.user.name}" , "/bookings/#{booking.id}", class: "red-booking" %>
         <% else %>
             <%= link_to pretty_date_time, "/bookings/new?time=#{formatted_date_time}" ,class: "green-booking"%>
         <% end %>

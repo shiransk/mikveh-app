@@ -1,5 +1,7 @@
 class MikvehsController < ApplicationController
 
+before_action :check_mikveh , except: [:create, :new]
+
   def new
   end
 

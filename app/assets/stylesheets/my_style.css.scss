@@ -61,6 +61,21 @@
     color: #337AB7;
 }
 
+.blue-nav {
+  border: 1px solid #bdc3c7;
+  padding: 9px 20px 10px;
+
+
+  &.active {
+    background-color: #41bedd;
+  a {
+    background-color: #41bedd;
+  }
+  }
+
+
+}
+
 
 html {
     position: relative;

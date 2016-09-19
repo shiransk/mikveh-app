@@ -1,5 +1,7 @@
   class BookingsController < ApplicationController
 
+before_action :check_mikveh
+
   def new
     if params[:time]
       @booking_time = params[:time]
@@ -72,8 +74,8 @@
   def destroy
     booking_deleted = Booking.find_by(id: params[:id])
     Booking.find_by(id: params[:id]).destroy
-    UserMailer.cancel_boooking_email(booking_deleted).deliver_now
-    UserMailer.cancel_boooking_email_balanit(booking_deleted).deliver_now
+    UserMailer.cancel_boooking_email(booking_deleted).deliver_later
+    UserMailer.cancel_boooking_email_balanit(booking_deleted).deliver_later
     flash[:danger] = 'Apoitment was canceld'
     if current_user && current_user.balanit
       redirect_to '/dashboard_balanit'
@@ -81,5 +83,6 @@
       redirect_to '/dashboard_client'
     end
   end
+
 
 end

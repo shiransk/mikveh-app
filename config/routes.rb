@@ -30,6 +30,11 @@ get '/mikveh', to: 'mikvehs#new'
 post '/mikveh', to: 'mikvehs#create'
 get '/mikveh/:id', to: 'mikvehs#show'
 
+#Posts
+get '/posts', to: 'posts#index'
+get '/posts/new', to: 'posts#new'
+post '/posts', to: 'posts#create'
+
   namespace :api do 
     namespace :v1 do 
       get '/mikveh', to: 'mikvehs#index'
