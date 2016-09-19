@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'comments/new'
+
+  get 'comments/create'
+
 #users 
 get '/client_calender', to: 'users#client_calender'
 get '/', to: 'users#index'
@@ -34,6 +38,9 @@ get '/mikveh/:id', to: 'mikvehs#show'
 get '/posts', to: 'posts#index'
 get '/posts/new', to: 'posts#new'
 post '/posts', to: 'posts#create'
+
+get '/comments/new', to: 'comments#new'
+post '/comments', to: 'comments#create'
 
   namespace :api do 
     namespace :v1 do 

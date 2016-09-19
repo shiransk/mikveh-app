@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+before_action :user_logged_in? , except: [:index]
   def index 
     @posts = Post.all 
   end
@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(text: params[:text], subject: params[:subject])
+    @post = Post.new(text: params[:text], subject: params[:subject], user_id: params[:user_id])
     if @post.save
       flash[:success] = "Post Created"
       redirect_to '/posts'
@@ -18,6 +18,6 @@ class PostsController < ApplicationController
       redirect_to '/'
     end
   end
-
+ 
 
 end

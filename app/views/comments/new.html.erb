@@ -1,0 +1,15 @@
+<%= form_tag '/comments', method: :post do %>
+
+<div >
+  <%= label_tag :text %>
+  <%= text_field_tag :text, '', class: "form-control"  %>
+</div>
+
+<div>
+  <%= hidden_field_tag :post_id, @post_id, class: 'form-control' %>
+</div>
+
+
+<%= submit_tag "Submit!" %>
+
+<% end %>

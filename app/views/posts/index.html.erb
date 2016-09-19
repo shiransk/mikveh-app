@@ -1,3 +1,5 @@
+<h3><%= link_to 'Post a question', '/posts/new' %></h3>
+
 <table class="table table-hover">
   <tr>
     <th>Post Subject</th>
@@ -8,7 +10,11 @@
     <tr>
       <td><%= post.subject %></td>
       <td><%= post.text %></td>
-      <td><%= post.comments.first.text if post.comments.any? %></td>
-    </tr>
+      <% if post.comments.any? %>
+        <td><%= post.comments.first.text %></td>
+      <% else %>
+        <td><%= link_to 'Reply' , "/comments/new?post_id=#{post.id}" %></td>
+      <% end %>
+    </tr> 
   <% end %>
 </table>

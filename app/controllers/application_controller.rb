@@ -22,4 +22,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def user_logged_in? 
+    if current_user 
+      #nothing
+    else
+      flash[:success] = "Must Login first"
+      redirect_to '/posts'
+    end
+  end
+
+
+
 end
