@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'rooms/show'
+
   get 'comments/new'
 
   get 'comments/create'
@@ -50,6 +52,11 @@ post '/comments', to: 'comments#create'
 get '/comments/:id/edit', to: 'comments#edit'
 patch '/comments/:id', to: 'comments#update'
 delete '/comments/:id', to: 'comments#destroy'
+
+
+#ActionCable
+mount ActionCable.server => '/cable'
+get '/rooms', to: 'rooms#show'
 
 
   namespace :api do 
