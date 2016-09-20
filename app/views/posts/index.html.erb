@@ -26,12 +26,12 @@
         <div class="panel panel-default ">
         <div class="panel panel-default">
           <div class="panel-heading ">
-         <% if post.comments.any? %> 
+          <% if post.comments.any? %> 
             <h4 class="panel-title ">
-         <% else %>
+          <% else %>
            <h4 class="panel-title  ">
-         <% end %>
-              <a data-toggle="collapse" data-parent="#accordion" href="#<%= post.id  %>">
+          <% end %>
+            <a data-toggle="collapse" data-parent="#accordion" href="#<%= post.id  %>">
               <%= post.text %><%= link_to "- Answer", "/comments/new?post_id=#{post.id}" if !post.comments.any? %> <%= link_to " Edit", "/posts/#{post.id}/edit", class: 'red-booking' if !post.comments.any? %></a>
             </h4>
           </div>
