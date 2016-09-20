@@ -1,0 +1,19 @@
+<h1>Edit Comment</h1>
+
+<%= form_tag "/comments/#{@comment.id}", method: :patch do %>
+
+<div>
+  <%= label_tag :text %>
+  <%= text_field_tag :text, @comment.text, class: 'form-control' %>
+</div>
+
+<div>
+  <%= hidden_field_tag :post_id, @comment.post.id, class: 'form-control' %>
+</div>
+
+</div>
+  
+
+<%= submit_tag "Submit!" %>
+
+<% end %>

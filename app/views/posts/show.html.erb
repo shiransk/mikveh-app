@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-2"></div>
+    <div class="col-md-8 post-show ">
+      <ul>
+        <li><%= @post.text%></li>
+        <li><%= link_to 'Edit', "/posts/#{@post.id}/edit" %></li>
+        <li><%= link_to 'Delete', "/posts/#{@post.id}/", method: :delete %></li>
+        <li><%= link_to 'Comment', "/comments/new?post_id=#{@post.id}/" %></li>
+      </ul> 
+    </div>
+</div>

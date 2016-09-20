@@ -21,6 +21,7 @@ module MikvehApp
 
  config.time_zone = 'UTC'
  config.beginning_of_week = :sunday
+ config.active_record.belongs_to_required_by_default = false
  # config.time_zone = 'Pacific Time (US & Canada)'
  # config.active_record.default_timezone = 'Pacific Time (US & Canada)'
     # Settings in config/environments/* take precedence over those specified here.

@@ -26,9 +26,18 @@
 
 .red-booking {
   color: red;
-  font-weight: bold;
+  font-weight: bold !important;
 
-}.green-booking {
+}
+
+.red-post {
+  color: black;
+  background-color: red;
+
+}
+
+
+.green-booking {
   color: green !important;
 }
 
@@ -74,6 +83,14 @@
   }
 
 
+}
+
+.post-show {
+  background-color: #41bedd;
+  font-size: 18px;
+  font-family:  "Arial Black", Gadget, sans-serif;
+  padding: 0px 0px 10px 50px;
+  border-radius: 25px; 
 }
 
 

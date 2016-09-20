@@ -1,20 +1,20 @@
-<%= form_tag '/posts', method: :post do %>
+<h1>Edit Message</h1>
+
+<%= form_tag "/posts/#{@post.id}", method: :patch do %>
+
 
 <div>
   <%= label_tag :text %>
-  <%= text_area_tag :text, '', class: 'form-control' %>
+  <%= text_field_tag :text, @post.text, class: 'form-control' %>
 </div>
 
 <div>
-  
   <%= hidden_field_tag :user_id, current_user.id, class: 'form-control' %>
 </div>
 
 </div>
   
-<center>
-  
+
 <%= submit_tag "Submit!" %>
-</center>
 
 <% end %>
