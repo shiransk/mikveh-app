@@ -11,7 +11,7 @@
   </div>
 
   <div>
-    <% if current_user && current_user.balanit %>
+    <% if current_user && current_user.balanit && current_user.mikveh.id == @mikveh_id.to_i %>
         <h1>Clients List <%=collection_select :user , :user_id , User.all , :id , :name,{},{class: 'form-control'} %> </h1> 
     <% else %>
         <%= hidden_field_tag :user_id, current_user.id %>

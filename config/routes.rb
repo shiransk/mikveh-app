@@ -32,9 +32,11 @@ get '/logout', to: 'sessions#destroy'
  delete '/bookings/:id', to: 'bookings#destroy'
 
 #mikveh
-get '/mikveh', to: 'mikvehs#new'
-post '/mikveh', to: 'mikvehs#create'
-get '/mikveh/:id', to: 'mikvehs#show'
+get '/mikvehs', to: 'mikvehs#new'
+post '/mikvehs', to: 'mikvehs#create'
+get '/mikvehs/:id', to: 'mikvehs#show'
+get '/mikvehs/:id/edit', to: 'mikvehs#edit'
+patch 'mikvehs/:id', to: 'mikvehs#update'
 
 #Posts
 get '/posts', to: 'posts#index'

@@ -6,6 +6,8 @@
           <th>Name</th>
           <th>location</th>
           <th>rooms</th>
+          <th>Supervision</th>
+          <th>Shul</th>
           <th>Check Avilibilaty</th>
         </tr>
 
@@ -13,6 +15,8 @@
           <td><%= @mikveh.name  %></td>
           <td><%= @mikveh.location  %></td>
           <td><%= @mikveh.rooms %></td>
+          <td><%= @mikveh.supervision %></td>
+          <td><%= @mikveh.shul %></td>
           <td class="red-booking"><%= link_to 'Check Avilibilaty', "/client_calender?id=#{@mikveh.id}" %></td>
         </tr>
       </table>

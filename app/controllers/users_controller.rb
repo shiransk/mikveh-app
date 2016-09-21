@@ -25,6 +25,7 @@ before_action :check_mikveh
   end
 
   def calendar
+    @mikveh_id = current_user.mikveh.id
     if current_user && current_user.balanit
       @bookings = current_user.mikveh.bookings.eager_load(:user)
       @start_time = Time.parse("18:00:00")
