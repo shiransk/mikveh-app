@@ -1,0 +1,7 @@
+<h1>Chat rooms</h1>
+
+<% @chat_rooms.each do |chat_room| %>
+
+<%= link_to chat_room.user.name, "/chats/#{chat_room.id}" %>
+
+<% end %>

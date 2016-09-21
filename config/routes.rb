@@ -58,6 +58,10 @@ delete '/comments/:id', to: 'comments#destroy'
 mount ActionCable.server => '/cable'
 get '/rooms', to: 'rooms#show'
 
+#chat_rooms
+get '/chats', to: 'chat_rooms#index'
+get '/chats/:id', to: 'chat_rooms#show'
+
 
   namespace :api do 
     namespace :v1 do 

@@ -3,6 +3,7 @@ CarrierWave.configure do |config|
     provider:               'AWS',
     aws_access_key_id:      ENV['SECRET_ID'],
     aws_secret_access_key:  ENV['SECRET_KEY'],
+    :region                 => 'us-west-2' # not Ireland
   }
 
   # For testing, upload files to local `tmp` folder.

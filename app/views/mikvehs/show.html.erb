@@ -16,14 +16,14 @@
           <td class="red-booking"><%= link_to 'Check Avilibilaty', "/client_calender?id=#{@mikveh.id}" %></td>
         </tr>
       </table>
+  <%=   image_tag @mikveh.image_url.to_s, class: 'pic_size' %>
     </div>
       <div class="col-md-5">
-        <div id="map_show" style="width: 500px; height: 400px;"></div>
+        <div id="map_show" class="map_css" style="width: 500px; height: 400px;"></div>
       </div>
 </div>
 
 <p>
-  <%= image_tag @mikveh.image_url.to_s %>
 </p>
 
 <script type="text/javascript">

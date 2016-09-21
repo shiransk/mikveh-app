@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :bookings
   has_one :mikveh
   has_many :posts 
+  has_many :messages
+  has_many :chat_rooms
   mount_uploader :image, ImageUploader
   
   validates :email, uniqueness: true
