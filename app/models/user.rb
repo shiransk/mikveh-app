@@ -12,4 +12,20 @@ class User < ApplicationRecord
   validates :name, length: { minimum: 2 }
   validates :password, length: { in: 6..20 }
 
+  # current_user.all_chat_rooms
+  # => self = current_user
+  def all_chat_rooms
+    chat_rooms = []
+
+    self.chat_rooms.each do |room|
+      chat_rooms << room
+    end
+
+    ChatRoom.where(recipient_id: self.id).each do |room|
+      chat_rooms << room
+    end
+    
+    return chat_rooms
+  end
+
 end

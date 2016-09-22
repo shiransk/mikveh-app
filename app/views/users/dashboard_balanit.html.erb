@@ -31,7 +31,7 @@
       <% if booking %>
         <%= link_to booking.user.name, "/bookings/#{booking.id}", class: "red-booking" %>
       <% else %>
-          <%= link_to pretty_date_time, "/bookings/new?time=#{formatted_date_time}" ,class: "green-booking"%>
+          <%= link_to pretty_date_time, "/bookings/new?time=#{formatted_date_time}&mikveh_id=#{@mikveh.id}" ,class: "green-booking"%>
       <% end %>
         <% slot_start_time += 30.minutes %>
       <br/>

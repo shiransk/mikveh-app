@@ -1,10 +1,60 @@
-<h1>Chat room</h1>
-  
-<div id="messages_list">
-  <%= render @messages %>
+<% content_for :title, 'admin | Action Cable Chat' %>
+<div class="header">
+  <div class="team-menu">ActionCable</div>
+
+  <div class="channel-menu">
+    <span class="channel-menu_name"><span class="channel-menu_prefix">#</span> admin</span>
+  </div>
 </div>
-  
-<form>
-  <label>Say something:</label><br>
-  <input type="text" data-behavior="room_speaker">
-</form>
+<div class="main">
+  <div class="listings">
+    <div class="listings_channels">
+      <h2 class="listings_header">Channels</h2>
+      <ul class="channel_list">
+        <li class="channel active">
+          <a class="channel_name"><span><span class="prefix"></span>mikveh</span></a>
+        </li>
+        <li class="channel">
+          <a class="channel_name"><span class="unread">10</span><span><span class="prefix">#</span>general</span></a>
+        </li>
+      </ul>
+    </div>
+    <div class="listings_direct-messages">
+      <h2 class="listings_header">Direct Messages</h2>
+      <ul class="channel_list">
+
+      <% @chat_rooms.each do |chat_room| %>
+        <li class="channel">
+          <a class="channel_name"><span class="unread">20</span><span><span class="prefix"> 
+          </span>
+            <% if chat_room.user == current_user %>
+              <%= link_to User.find(chat_room.recipient_id).name, "/chats/#{chat_room.id}" %>
+            <% else %>
+              <%= link_to chat_room.user.name, "/chats/#{chat_room.id}" %>
+            <% end %>
+          </span>
+          </a>
+        </li>
+        <% end %>
+
+
+      </ul>
+    </div>
+  </div>
+  <div class="message-history" id="messages_list" data-chat-room-id="<%= @chat_room.id %>" data-user-id="<%= current_user.id %>">
+    <%= render @messages %>
+  </div>
+</div>
+<div class="footer">
+  <div class="user-menu">
+    <span class="user-menu_profile-pic"></span><span class="user-menu_username"><%= current_user.email %></span>
+    <span class="connection_status">online</span>
+  </div>
+
+  <form>
+    <div class="input-box">
+      <input type="text" class="input-box_text" id="message_input" data-behavior="room_speaker"/>
+    </div>
+  </form>
+
+</div>

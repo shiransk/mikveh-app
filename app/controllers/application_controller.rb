@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
       else
         flash[:danger] = "Must Register Mikveh to continue"
-        redirect_to '/mikveh'
+        redirect_to '/mikvehs'
       end
     end
   end

@@ -1,0 +1,49 @@
+    <header id="header" class="page-header">
+        
+        <!-- #navigation -->
+        <nav id="navigation" class="navbar">
+            
+            <!-- .container -->
+            <div class="container">
+                
+                <div class="navbar-brand">
+                  <%  if current_user %>
+                  <li class="nav navbar-nav"> <%= link_to "Hello #{current_user.name}" %></li>
+                  <% end %>
+                </div>
+                
+                <ul class="nav navbar-nav">
+                  <li role="presentation"> <%= link_to 'Find A Mikveh', "/" %></li>
+                  <li role="presentation"> <%= link_to 'Ask The Rabbi', "/posts" %></li>
+                  <li role="presentation"> <%= link_to 'Chat Room', "/chats" %></li>
+                  <%  if current_user %>
+                  <li role="presentation"> <%= link_to 'Logout', "/logout" %></li>
+                  <% else %>
+                  <li role="presentation"> <%= link_to 'User Signup', "/new_client" %></li>
+                  <li role="presentation"> <%= link_to 'Balanit Signup', "/new_balanit" %></li>
+                  <li role="presentation"> <%= link_to 'Login', "/login" %></li>
+                  <% end %>
+                  <%  if current_user && current_user.balanit %>
+                  <li role="presentation"> <%= link_to 'Dashboard', "/dashboard_balanit" %></li>
+                  <li><%= link_to 'Calendar', '/calendar' %></li>
+                  <% elsif current_user %>
+                  <li role="presentation"> <%= link_to 'Dashboard', "/dashboard_client" %></li>
+                  <% end %>
+                </ul>
+                
+            </div>
+            <!-- .container end -->
+            
+        </nav>
+        <!-- #navigation end -->
+        
+<!--         <div class="page-header-overlay">
+            <div class="container">
+              <div class="page-header-text">
+                  <h1>Welcome to mikveh App</h1>
+                    <h3>Bellow is the list of avalible mikvehs</h3>
+                </div>
+            </div>
+        </div> -->
+        
+    </header>

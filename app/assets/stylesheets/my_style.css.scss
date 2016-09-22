@@ -25,7 +25,7 @@
 }
 
 .red-booking {
-  color: red;
+  color: red !important;
   font-weight: bold !important;
 
 }
@@ -85,15 +85,16 @@
 }
 
 .blue-nav {
+  background-color: #E3E7E9;
   border: 1px solid #bdc3c7;
   padding: 9px 20px 10px;
 
 
 
   &.active {
-    background-color: #41bedd;
+    background-color: #E3E7E9;
   a {
-    background-color: #41bedd;
+    background-color: #E3E7E9;
   }
   }
 
@@ -101,7 +102,7 @@
 }
 
 .nav_link {
-  background-color: #41bedd;
+  background-color: #E3E7E9;
   border: none;
 }
 

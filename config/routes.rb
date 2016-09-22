@@ -57,7 +57,7 @@ delete '/comments/:id', to: 'comments#destroy'
 
 
 #ActionCable
-mount ActionCable.server => '/cable'
+# mount ActionCable.server => '/cable'
 get '/rooms', to: 'rooms#show'
 
 #chat_rooms

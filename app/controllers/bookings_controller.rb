@@ -13,6 +13,7 @@ before_action :check_mikveh
   end
 
   def create
+    @mikveh_id = params[:mikveh_id]
     if current_user
       starting_time = DateTime.parse(params[:start_time])
       end_time = starting_time + 29.minutes
@@ -20,9 +21,8 @@ before_action :check_mikveh
       clashed_bookings = Booking.where(mikveh_id: params[:mikveh_id], start_time: starting_time..end_time)
 
       clashed_bookings2 = Booking.where(mikveh_id: params[:mikveh_id], start_time: starting_time - 29.minutes..starting_time)
-
       if clashed_bookings.empty? && clashed_bookings2.empty?
-        if current_user.balanit
+        if !current_user.balanit
           booking = Booking.new(user_id: params[:user][:user_id], start_time: params[:start_time],mikveh_id: current_user.mikveh.id)
         else
           booking = Booking.new(user_id: params[:user_id], start_time: params[:start_time],mikveh_id: params[:mikveh_id])

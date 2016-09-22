@@ -20,6 +20,6 @@
  *= require ie-older
  *= require no-js
  *= require animate
- *= require_tree .
+ *= require my_style
  *= require_self
  */
