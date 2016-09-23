@@ -53,7 +53,7 @@ before_action :check_mikveh
       session[:user_id] = @user.id
       UserMailer.welcome_email(@user).deliver_later
       if @user.balanit
-        redirect_to '/mikveh'
+        redirect_to '/mikvehs'
       else
         # direct them to search
         redirect_to '/dashboard_client'

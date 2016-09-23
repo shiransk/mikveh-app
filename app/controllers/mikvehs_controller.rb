@@ -9,11 +9,17 @@ before_action :check_mikveh , except: [:create, :new]
     mikveh = Mikveh.new(name: params[:name], location: params[:location], rooms: params[:rooms], user_id: params[:user_id], image: params[:image], supervision: params[:supervision], shul: params[:shul])
     if mikveh.save
       flash[:success] = "Mikveh created!"
+      if ChatRoom.where(user_id: mikveh.id, room_type: "mikveh_chat").empty?
+        chat = ChatRoom.new(user_id: mikveh.user.id, room_type: "mikveh_chat") 
+        if chat.save
+      flash[:success] = "Mikveh Chat created!"
       redirect_to "/mikvehs/#{mikveh.id}"
+        end
     else
       flash[:danger] = "Mikveh not creted"
       redirect_to '/dashboard_balanit'
     end  
+  end
   end
 
   def show  

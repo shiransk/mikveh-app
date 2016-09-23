@@ -6,11 +6,13 @@ class Mikveh < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   
-  #  after_save do |mikveh|
-  #   if ChatRoom.where(user_id: mikveh.user.id, type: "mikveh").empty?
-  #     ChatRoom.create(user_id: mikveh.user.id, type: "mikveh") 
+  # after_save do |mikveh|
+  #   if ChatRoom.where(user_id: mikveh.id, room_type: "mikveh_chat").empty?
+  #     ChatRoom.create(user_id: mikveh.id, room_type: "mikveh_chat") 
   #   end
-
   # end
-
+  
+  def chatroom
+    ChatRoom.find_by(user_id: user_id, room_type: 'mikveh_chat')
+  end
 end

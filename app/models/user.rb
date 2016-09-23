@@ -17,7 +17,7 @@ class User < ApplicationRecord
   def all_chat_rooms
     chat_rooms = []
 
-    self.chat_rooms.each do |room|
+    self.chat_rooms.where("room_type NOT IN (?)", ["general_chat", "mikveh_chat"]).each do |room|
       chat_rooms << room
     end
 
