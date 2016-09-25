@@ -6,7 +6,7 @@
     <li>Balanit- <%= current_user.name.capitalize %> </li>
     <li>Mikveh- <%= @mikveh.name.capitalize  %></li>
     <li>Location- <%= @mikveh.location.capitalize %></li>
-    <li>Rooms- <%= @mikveh.rooms %></li>
+    <li>Phone number- <%= @mikveh.phone_number %></li>
   </ul>
 
   <%= week_calendar events: @bookings do |date, bookings| %> 

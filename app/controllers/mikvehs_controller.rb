@@ -6,7 +6,7 @@ before_action :check_mikveh , except: [:create, :new]
   end
 
   def create
-    mikveh = Mikveh.new(name: params[:name], location: params[:location], rooms: params[:rooms], user_id: params[:user_id], image: params[:image], supervision: params[:supervision], shul: params[:shul])
+    mikveh = Mikveh.new(name: params[:name], location: params[:location], phone_number: params[:phone_number], user_id: params[:user_id], image: params[:image], supervision: params[:supervision], shul: params[:shul])
     if mikveh.save
       flash[:success] = "Mikveh created!"
       if ChatRoom.where(user_id: mikveh.id, room_type: "mikveh_chat").empty?
@@ -20,6 +20,14 @@ before_action :check_mikveh , except: [:create, :new]
       redirect_to '/dashboard_balanit'
     end  
   end
+  end
+
+  def index
+    
+  end
+
+  def index_map
+
   end
 
   def show  

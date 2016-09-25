@@ -8,20 +8,16 @@ before_action :check_mikveh
     @mikveh = Mikveh.find_by(id: params[:id])
   end 
 
-  def index
-
-  end
-
-  def index_map
-
-  end
-
   def new_balanit
     @user = User.new 
   end
 
   def new_client
     @user = User.new 
+  end
+
+  def index 
+    @users = User.all
   end
 
   def calendar

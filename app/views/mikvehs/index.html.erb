@@ -1,0 +1,56 @@
+<h1 class="">Welcome to mikveh App</h1>
+
+<div class="row">
+  <div class="col-md-4"></div>
+
+  <div ng-app="app">
+    <div ng-controller="mikvehCtrl" ng-init="setup()">
+
+      <div class="container">
+        <ul class="nav nav-tabs">
+          <li class="nav blue-nav nav_link"><a class="nav_link" href="#B" data-toggle="tab">List View</a></li>
+          <li class="nav blue-nav nav_link"><a class="nav_link" href="#C" data-toggle="tab" id="map_tab">Map View</a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div class="tab-pane fade active in" id="B">
+            <div>
+             Search <input ng-model="nameAndLocation" list="names">
+             <datalist id="names">
+               <option ng-repeat="mikveh in mikvehs">{{mikveh.name}}</option>
+             </datalist>  
+           </div>
+
+           <table class="table table-hover">
+            <tr>
+              <th ng-click="sortByAttr('name')">Mikveh Name</th>
+              <th ng-click="sortByAttr('location')">Mikveh Location</th>
+              <th>Mikveh Houers</th>
+              <th>Pick This Mikveh</th>
+            </tr>
+            <tr ng-repeat="mikveh in mikvehs | filter: nameAndLocation | orderBy: orderAttr:desc" >
+              <td><%= link_to "{{mikveh.name}}", "/mikvehs/{{mikveh.id}}" %></td>
+              <td>{{mikveh.location}}</td>
+              <td>18:00PM - 10:30PM</td>
+              <td class="red-booking"><%= link_to 'Check Avilibilaty', "/client_calender?id={{mikveh.id}}" %></td>
+            </tr>
+          </table>
+
+        </div>
+        <div class="tab-pane fade" id="C">
+        <center>
+          <div id="map" style="width: 500px; height: 400px;"></div>
+        </center>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+$("a[href='#C']").on('shown.bs.tab', function(){
+  google.maps.event.trigger(map, 'resize');
+});
+</script>

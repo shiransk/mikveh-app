@@ -12,7 +12,7 @@
       <h2 class="listings_header">Channels</h2>
       <ul class="channel_list">
         <li class="channel <% if params[:id] == '1' %>active<% end %>">
-          <a class="channel_name" href="/chats/1"><span class="unread"><%= @messages.count %></span><span><span class="prefix">#</span>general</span></a>
+          <a class="channel_name" href="/chats/1"><span class="unread "><%= @messages.count %></span><span><span class="prefix">#</span>general</span></a>
         </li>
      <% @mikveh_chats.each do |mikveh_chat|  %>
         <li class="channel <% if params[:id] == mikveh_chat.id.to_s %>active<% end %>">
@@ -27,12 +27,15 @@
 
       <% @chat_rooms.each do |chat_room| %>
         <li class="channel">
-          <a class="channel_name"><span class="unread"><%= @messages.count %></span><span><span class="prefix"> 
           </span>
             <% if chat_room.user == current_user && chat_room.room_type != "mikveh_chat" && chat_room.room_type != "general_chat" %>
+             <div class="channel <% if params[:id] == chat_room.id.to_s %>active<% end %>">
               <%= link_to User.find_by(id: chat_room.recipient_id).name, "/chats/#{chat_room.id}" %>
+            </div>
             <% else %>
+            <div id="test" class="channel <% if params[:id] == chat_room.id.to_s %>active<% end %>">
               <%= link_to chat_room.user.name, "/chats/#{chat_room.id}" %>
+            </div>
             <% end %>
           </span>
           </a>

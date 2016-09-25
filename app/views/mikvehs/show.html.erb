@@ -1,30 +1,16 @@
-<div ng-app="app" class="row" ng-controller="mikvehCtrl" ng-init="setup()">
-  <div class="col-md-1"></div>
-    <div class="col-md-5">
-      <table class="table table-hover">
-        <tr>
-          <th>Name</th>
-          <th>location</th>
-          <th>rooms</th>
-          <th>Supervision</th>
-          <th>Shul</th>
-          <th>Check Avilibilaty</th>
-        </tr>
-
-        <tr>
-          <td><%= @mikveh.name  %></td>
-          <td><%= @mikveh.location  %></td>
-          <td><%= @mikveh.rooms %></td>
-          <td><%= @mikveh.supervision %></td>
-          <td><%= @mikveh.shul %></td>
-          <td class="red-booking"><%= link_to 'Check Avilibilaty', "/client_calender?id=#{@mikveh.id}" %></td>
-        </tr>
-      </table>
-  <%=   image_tag @mikveh.image_url.to_s, class: 'pic_size' %>
-    </div>
-      <div class="col-md-5">
-        <div id="map_show" class="map_css" style="width: 500px; height: 400px;"></div>
-      </div>
+<div ng-app="app" class="row"  ng-controller="mikvehCtrl" ng-init="setup()"> 
+  <div class="col-md-6">
+    <h3><%= @mikveh.name  %></h3>
+      <ul class="ul_mikveh">
+       <li><span class="mikveh_span">location-</span> <%= @mikveh.location  %> </li> 
+       <li> <span class="mikveh_span">Supervision-</span>  <%= @mikveh.supervision %> </li>
+       <li><span class="mikveh_span">Shul-</span>  <%= @mikveh.shul %>  </li>
+       <li> <span class="mikveh_span">Phone Number-</span>  <%= @mikveh.phone_number %> </li>
+       <li > <%= link_to 'Check Avilibilaty', "/client_calender?id=#{@mikveh.id}", class: "red-booking" %> </li> 
+     </ul>
+    <%= image_tag @mikveh.image_url.to_s, class: 'pic_size' %>
+  </div>
+    <div id="map_show" class="map_css col-md-6" style="width: 500px; height: 400px;"></div>
 </div>
 
 <p>

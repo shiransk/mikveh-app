@@ -6,11 +6,9 @@ Rails.application.routes.draw do
 
   get 'comments/create'
 
-#users 
+#users
+get '/users', to: 'users#index' 
 get '/client_calender', to: 'users#client_calender'
-get '/', to: 'users#index'
-get '/index_map', to: 'users#index_map'
-get '/index', to: 'users#index'
 get '/dashboard_balanit', to: 'users#dashboard_balanit'
 get '/dashboard_client', to: 'users#dashboard_client'
 get '/calendar', to: 'users#calendar'
@@ -32,6 +30,9 @@ get '/logout', to: 'sessions#destroy'
  delete '/bookings/:id', to: 'bookings#destroy'
 
 #mikveh
+get '/', to: 'mikvehs#index'
+get '/index_map', to: 'mikvehs#index_map'
+get '/index', to: 'mikvehs#index'
 get '/mikvehs', to: 'mikvehs#new'
 post '/mikvehs', to: 'mikvehs#create'
 get '/mikvehs/:id', to: 'mikvehs#show'

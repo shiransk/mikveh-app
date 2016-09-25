@@ -21,7 +21,7 @@ before_action :check_mikveh
 
       clashed_bookings2 = Booking.where(mikveh_id: params[:mikveh_id], start_time: starting_time - 29.minutes..starting_time)
       if clashed_bookings.empty? && clashed_bookings2.empty?
-        if current_user.balanit && current_user.mikveh.id == @mikveh_id.to_i
+        if current_user.balanit && current_user.mikveh.id == params[:mikveh_id].to_i
           booking = Booking.new(user_id: params[:user][:user_id], start_time: params[:start_time],mikveh_id: current_user.mikveh.id)
         
         else
@@ -34,6 +34,7 @@ before_action :check_mikveh
       flash[:success] = "apoitment was booked!"
       UserMailer.booking_email(current_user).deliver_later
       UserMailer.booking_email_balanit(current_user).deliver_later
+      ChatRoom.create(user_id: booking.mikveh.user.id, recipient_id: booking.user.id)
       if current_user.balanit
         redirect_to '/calendar' 
       else

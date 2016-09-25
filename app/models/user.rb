@@ -24,7 +24,13 @@ class User < ApplicationRecord
     ChatRoom.where(recipient_id: self.id).each do |room|
       chat_rooms << room
     end
-    
+
+    ChatRoom.where(user_id: self.id).each do |room|
+      if room.recipient_id
+      chat_rooms << room
+      end
+    end
+  
     return chat_rooms
   end
 
