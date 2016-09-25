@@ -10,6 +10,7 @@ gem 'bootstrap3-datetimepicker-rails'
 gem 'carrierwave'
 gem 'fog'
 gem 'mini_magick'
+gem 'rails_12factor', group: :production
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem "simple_calendar", "~> 2.0"

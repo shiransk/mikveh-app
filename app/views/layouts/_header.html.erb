@@ -19,7 +19,7 @@
                   <% elsif current_user %>
                   <li role="presentation"> <%= link_to 'Dashboard', "/dashboard_client" %></li>
                   <% end %>
-                  <li role="presentation"> <%= link_to 'Find A Mikveh', "/" %></li>
+                  <li class="active" role="presentation"> <%= link_to 'Find A Mikveh', "/" %></li>
                   <li role="presentation"> <%= link_to 'Ask The Rabbi', "/posts" %></li>
                   <li role="presentation"> <%= link_to 'Chat Room', "/chats/1" %></li>
                   <%  if current_user %>

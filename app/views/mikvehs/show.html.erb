@@ -1,5 +1,5 @@
 <div ng-app="app" class="row"  ng-controller="mikvehCtrl" ng-init="setup()"> 
-  <div class="col-md-6">
+  <div class="col-md-3">
     <h3><%= @mikveh.name  %></h3>
       <ul class="ul_mikveh">
        <li><span class="mikveh_span">location-</span> <%= @mikveh.location  %> </li> 
@@ -8,9 +8,12 @@
        <li> <span class="mikveh_span">Phone Number-</span>  <%= @mikveh.phone_number %> </li>
        <li > <%= link_to 'Check Avilibilaty', "/client_calender?id=#{@mikveh.id}", class: "red-booking" %> </li> 
      </ul>
+  </div>
+  <div class="col-md-4">
+    
     <%= image_tag @mikveh.image_url.to_s, class: 'pic_size' %>
   </div>
-    <div id="map_show" class="map_css col-md-6" style="width: 500px; height: 400px;"></div>
+    <div id="map_show" class="map_css col-md-5" style="width: 450px; height: 450px;"></div>
 </div>
 
 <p>

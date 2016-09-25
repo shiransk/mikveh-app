@@ -42,6 +42,7 @@
 
 .pic_size {
   height: 400px !important;
+  margin: 30px 0px 0px 0px ;
 }
 
 .map_css {
@@ -58,7 +59,14 @@
   color: black;
 }
 
+.panel-title {
+  display: block;
+  padding: 10px  15px;
+}
 
+.panel-heading {
+  padding: 0 ;
+}
 
 
 .green-booking {
@@ -94,22 +102,25 @@
     color: #337AB7;
 }
 
-.blue-nav {
-  background-color: #E3E7E9;
-  border: 1px solid #bdc3c7;
-  padding: 9px 20px 10px;
 
+.mikvehTabs {
 
-
-  &.active {
-    background-color: #E3E7E9;
+  // Tab when not active / default
   a {
-    background-color: #E3E7E9;
+    color: white;
   }
+
+  // Tab when active
+  &.active {
+    a {
+      color: red !important;
+    }
   }
+
 
 
 }
+
 
 .nav_link {
   background-color: #E3E7E9;
@@ -125,6 +136,7 @@
 }
 
 .simple-calendar {
+  font-family: 'Nova Mono', monospace;
   .day {}
 
   .wday-0 {}

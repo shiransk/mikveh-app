@@ -27,7 +27,7 @@ body {
   margin: 0;
   padding-top: 53px;
   padding-bottom: 64px;
-  background-color: #4d394b;
+  background-color: white;
 }
 
 blockquote {
@@ -162,6 +162,7 @@ main {
 }
 
 .channel-menu_name {
+  background-color: white;
   display: inline-block;
   padding: 0 0.5rem 0 1.5rem;
   color: #555459;
@@ -178,7 +179,7 @@ main {
 }
 
 .listings {
-  height: 100%;
+  height: 20000px;
   width: 220px;
   float: left;
   color: #ab9ba9;

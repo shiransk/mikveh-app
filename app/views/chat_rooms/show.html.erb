@@ -1,3 +1,4 @@
+
 <% content_for :title, 'admin | Action Cable Chat' %>
 <div class="header">
   <div class="team-menu">ActionCable</div>
@@ -5,49 +6,44 @@
   <div class="channel-menu">
     <span class="channel-menu_name"><span class="channel-menu_prefix">#</span> admin</span>
   </div>
-</div>
-<div class="main">
-  <div class="listings">
-    <div class="listings_channels">
-      <h2 class="listings_header">Channels</h2>
-      <ul class="channel_list">
-        <li class="channel <% if params[:id] == '1' %>active<% end %>">
-          <a class="channel_name" href="/chats/1"><span class="unread "><%= @messages.count %></span><span><span class="prefix">#</span>general</span></a>
-        </li>
-     <% @mikveh_chats.each do |mikveh_chat|  %>
-        <li class="channel <% if params[:id] == mikveh_chat.id.to_s %>active<% end %>">
-          <a class="channel_name"><span><span class="prefix"></span><%= link_to Mikveh.find_by(user_id: mikveh_chat.user_id).name, "/chats/#{mikveh_chat.id}" %></span></a>
-        </li>
-     <% end %>   
-      </ul>
-    </div>
-    <div class="listings_direct-messages">
-      <h2 class="listings_header">Direct Messages</h2>
-      <ul class="channel_list">
+  <div class="main">
+    <div class="listings">
+      <div class="listings_channels">
+        <h2 class="listings_header">Channels</h2>
+        <ul class="channel_list">
+          <li class="channel <% if params[:id] == '1' %>active<% end %>">
+            <a class="channel_name" href="/chats/1"><span class="unread "><%= @messages.count %></span><span><span class="prefix">#</span>general</span></a>
+          </li>
+       <% @mikveh_chats.each do |mikveh_chat|  %>
+          <li class="channel <% if params[:id] == mikveh_chat.id.to_s %>active<% end %>">
+            <a class="channel_name"><span class="unread "><%= mikveh_chat.messages.count %></span><span><span class="prefix"></span><%= link_to Mikveh.find_by(user_id: mikveh_chat.user_id).name, "/chats/#{mikveh_chat.id}" %></span></a>
+          </li>
+       <% end %>   
+        </ul>
+      </div>
+      <div class="listings_direct-messages">
+        <h2 class="listings_header">Direct Messages</h2>
+        <ul class="channel_list">
 
-      <% @chat_rooms.each do |chat_room| %>
-        <li class="channel">
-          </span>
-            <% if chat_room.user == current_user && chat_room.room_type != "mikveh_chat" && chat_room.room_type != "general_chat" %>
-             <div class="channel <% if params[:id] == chat_room.id.to_s %>active<% end %>">
-              <%= link_to User.find_by(id: chat_room.recipient_id).name, "/chats/#{chat_room.id}" %>
-            </div>
-            <% else %>
-            <div id="test" class="channel <% if params[:id] == chat_room.id.to_s %>active<% end %>">
-              <%= link_to chat_room.user.name, "/chats/#{chat_room.id}" %>
-            </div>
-            <% end %>
-          </span>
-          </a>
-        </li>
-        <% end %>
-      </ul>
+        <% @chat_rooms.each do |chat_room| %>
+          <li class="channel <% if params[:id] == chat_room.id.to_s %>active<% end %>">
+              <% if chat_room.user == current_user && chat_room.room_type != "mikveh_chat" && chat_room.room_type != "general_chat" %>
+                <%= link_to User.find_by(id: chat_room.recipient_id).name, "/chats/#{chat_room.id}" %>
+              <% else %>
+                <%= link_to chat_room.user.name, "/chats/#{chat_room.id}" %>
+              <% end %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
-  <div class="message-history" id="messages_list" data-chat-room-id="<%= @chat_room.id %>" data-user-id="<%= current_user.id %>">
-    <%= render @messages %>
-  </div>
 </div>
+
+<div class="message-history" id="messages_list" data-chat-room-id="<%= @chat_room.id %>" data-user-id="<%= current_user.id %>">
+  <%= render @messages %>
+</div>
+
 <div class="footer">
   <div class="user-menu">
     <span class="user-menu_profile-pic"></span><span class="user-menu_username"><%= current_user.email %></span>

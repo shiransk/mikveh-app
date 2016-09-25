@@ -9,9 +9,8 @@ $(document).ready ->
     connected: ->
     disconnected: ->
     received: (data) ->
-      console.log 'Message received!'
       $('#messages_list').append data['message']
-      $('#messages_list').scrollTop $('#messages_list').prop('scrollHeight')
+      $("html,body").animate({ scrollTop: $('#messages_list').prop("scrollHeight") }, "fast");
       $('#message_input').focus()
     speak: (message, chat_room_id, user_id) ->
       @perform 'speak',
