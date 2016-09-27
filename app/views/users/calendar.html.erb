@@ -18,17 +18,19 @@
 
     <% 10.times do %>
       <% formatted_date_time = slot_start_time.strftime("%Y-%m-%d %H:%M") %>
-      <% pretty_date_time = slot_start_time.strftime("%H:%M") %>
+      <% pretty_date_time = slot_start_time.strftime("%I:%M %p") %>
 
       <% booking = current_user.mikveh.bookings.find_by(start_time: formatted_date_time,) %>
 
         <% if booking %>
+          <div class="calender_div">
           <%= link_to "#{booking.start_time.strftime("%H:%M")} - #{booking.user.name}" , "/bookings/#{booking.id}", class: "red-booking" %>
         <% else %>
+          <div>
             <%= link_to pretty_date_time, "/bookings/new?time=#{formatted_date_time}&mikveh_id=#{@mikveh_id}" ,class: "green-booking"%>
         <% end %>
+      </div>
           <% slot_start_time += 30.minutes %>
-        <br/>
     <% end %>
 
 <% end %>

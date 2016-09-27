@@ -155,8 +155,8 @@ main {
   font-weight: 900;
   padding: 0 1rem;
   color: #ffffff;
-  background: #3e313c;
-  border-bottom: 2px solid #372c36;
+  background: #f23409;
+  border-bottom: 2px solid #f23409;
   float: left;
   cursor: pointer;
 }
@@ -183,7 +183,7 @@ main {
   width: 220px;
   float: left;
   color: #ab9ba9;
-  background-color: #4d394b;
+  background-color: #b24931;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -201,6 +201,20 @@ main {
 
 .listings_channels {
   margin: 1rem 0 2rem;
+}
+
+.chat_butten{
+    color: #FFF !important;
+    font-size: 14px;
+    line-height: 34px;
+    text-align: left;
+    font-weight: 700;
+    text-transform: uppercase;
+    /*white-space: nowrap;*/
+    background-color: #f23409;
+    padding: 10px 50px 0px;
+    border: 0px;
+    /*outline: none !important;*/
 }
 
 .listings_header {
@@ -312,7 +326,7 @@ main {
   width: 220px;
   height: 100%;
   cursor: pointer;
-  background: #3e313c;
+  background: #f23409;
   border-top: 2px solid #372c36;
   padding: 7px 0 9px 8px;
   height: 4rem;

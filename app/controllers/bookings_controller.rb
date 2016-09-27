@@ -70,6 +70,7 @@ before_action :check_mikveh
 
   def show
     @booking = Booking.find_by(id: params[:id])
+    @chat = ChatRoom.find_by(user_id: current_user.id, recipient_id: @booking.user_id)
   end
 
   def destroy

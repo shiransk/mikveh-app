@@ -19,6 +19,7 @@
       <th>phone #</th>
       <th>Time & Date</th>
       <th>Cancel</th>
+      <th>Chat</th>
     </tr>
     <tr>
 
@@ -28,6 +29,7 @@
       <th> <%= @booking.user.phone_number %></th>
       <td><%= @booking.start_time.strftime("%m-%d-%y %H:%M") %></td>
         <td> <%= link_to 'Cancel', "/bookings/#{@booking.id}", method: :delete %></td>
+        <td><%= link_to 'Begain Chat', "/chats/#{@chat.id}" %></td>
     <% end %>
     </tr>
   </table>

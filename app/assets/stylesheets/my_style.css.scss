@@ -107,25 +107,25 @@
 
   // Tab when not active / default
   a {
-    color: white;
+    color: #EC502C !important;
+    background-color: white;
+    border: 1px solid #EC502C !important; 
   }
 
   // Tab when active
   &.active {
     a {
-      color: red !important;
+      background-color: #EC502C !important;
+      color: white !important;
     }
   }
 
-
-
 }
 
-
-.nav_link {
-  background-color: #E3E7E9;
-  border: none;
-}
+// .nav_link {
+//   background-color: #EC502C;
+//   border: none;
+// }
 
 .post-show {
   background-color: #41bedd;
@@ -135,11 +135,24 @@
   border-radius: 25px; 
 }
 
-.simple-calendar {
-  font-family: 'Nova Mono', monospace;
-  .day {}
+.calender_div {
+  background-color: #EC502C;
+  width: 100% ;
+}
 
-  .wday-0 {}
+.simple-calendar {
+font-family: 'Droid Sans Mono', monospace;
+  .day {
+  border-style: dotted;
+   border-width: 1px;
+   border-color: #EC502C;
+
+  }
+
+  .wday-0 {
+
+  }
+
   .wday-1 {}
   .wday-2 {}
   .wday-3 {}
@@ -153,7 +166,7 @@
 
   .start-date {}
 
-  .prev-month {}
+  .prev-month { }
   .next-month { }
   .current-month {}
 

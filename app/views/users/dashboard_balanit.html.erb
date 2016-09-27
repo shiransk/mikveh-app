@@ -1,15 +1,14 @@
 <h1>Dashboard</h1>
 
-
-
-  <ul class="info">
+  <ul class="info" style="list-style: none;">
     <li>Balanit- <%= current_user.name.capitalize %> </li>
     <li>Mikveh- <%= @mikveh.name.capitalize  %></li>
     <li>Location- <%= @mikveh.location.capitalize %></li>
     <li>Phone number- <%= @mikveh.phone_number %></li>
   </ul>
 
-  <%= week_calendar events: @bookings do |date, bookings| %> 
+
+  <%= week_calendar  events: @bookings  do |date, bookings| %> 
   <%= date %>
 
   <% bookings.each do |booking| %>
@@ -22,20 +21,24 @@
 
   <% slot_start_time = DateTime.new(date.year, date.month, date.day, @start_time.hour, @start_time.min, @start_time.sec, @start_time.zone) %>
 
-  <% 10.times do %>
-    <% formatted_date_time = slot_start_time.strftime("%Y-%m-%d %H:%M") %>
-    <% pretty_date_time = slot_start_time.strftime("%H:%M") %>
+    <% slot_start_time = DateTime.new(date.year, date.month, date.day, @start_time.hour, @start_time.min, @start_time.sec, @start_time.zone) %>
 
-    <% booking = current_user.mikveh.bookings.find_by(start_time: formatted_date_time) %>
+    <% 10.times do %>
+      <% formatted_date_time = slot_start_time.strftime("%Y-%m-%d %H:%M") %>
+      <% pretty_date_time = slot_start_time.strftime("%I:%M %p") %>
 
-      <% if booking %>
-        <%= link_to booking.user.name, "/bookings/#{booking.id}", class: "red-booking" %>
-      <% else %>
-          <%= link_to pretty_date_time, "/bookings/new?time=#{formatted_date_time}&mikveh_id=#{@mikveh.id}" ,class: "green-booking"%>
-      <% end %>
-        <% slot_start_time += 30.minutes %>
-      <br/>
-  <% end %>
+      <% booking = current_user.mikveh.bookings.find_by(start_time: formatted_date_time,) %>
+
+        <% if booking %>
+          <div class="calender_div">
+          <%= link_to "#{booking.start_time.strftime("%I:%M %p")}- #{booking.user.name}" , "/bookings/#{booking.id}", class: "red-booking" %>
+        <% else %>
+          <div>
+            <%= link_to pretty_date_time, "/bookings/new?time=#{formatted_date_time}&mikveh_id=#{@mikveh_id}" ,class: "green-booking"%>
+        <% end %>
+      </div>
+          <% slot_start_time += 30.minutes %>
+    <% end %>
 
 <% end %>
 
@@ -48,7 +51,7 @@
 
   <tr>
    <% current_user.mikveh.bookings.each do |booking| %>
-    <td><%= booking.user.name.capitalize  %></td>
+    <td><%=link_to booking.user.name.capitalize, "bookings/#{booking.id}"  %></td>
     <td><%= booking.start_time %></td>
     <td> <%= link_to 'Cancel', "/bookings/#{booking.id}", method: :delete %></td>
   </tr>

@@ -12,7 +12,7 @@
     var locations = response.data
 
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 8,
+      zoom: 9,
       center: new google.maps.LatLng(38.7749295, -123.21941550000001),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
@@ -47,26 +47,7 @@
                           'Error: The Geolocation service failed.' :
                           'Error: Your browser doesn\'t support geolocation.');
   }
-
-          //   if (navigator.geolocation) {
-          // navigator.geolocation.getCurrentPosition(function(position) {
-          //   var pos = {
-          //     lat: position.coords.latitude,
-          //     lng: position.coords.longitude
-          //   };
-
-        //     infoWindow.setPosition(pos);
-        //     infoWindow.setContent('Location found.');
-        //     map.setCenter(pos);
-        //   }, function() {
-        //     handleLocationError(true, infoWindow, map.getCenter());
-        //   });
-        // } else {
-        //   // Browser doesn't support Geolocation
-        //   handleLocationError(false, infoWindow, map.getCenter());
-        // }
       
-
     var marker, i;
 
     for (i = 0; i < locations.length; i++) {  
@@ -79,7 +60,6 @@
         return function() {
           infowindow.setContent("<a href='/mikvehs/" + locations[i].id + "''>" + locations[i].name + "</a>");
           infowindow.open(map, marker);
-          // window.location.href = locations[i].name
         }
       })(marker, i));
     }
