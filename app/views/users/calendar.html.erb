@@ -1,6 +1,7 @@
+ 
+
 <h2>Calendar</h2>
 <!-- Calendar !-->
-<%= @bookings.first.created_at.strftime("%B") %>
 <%= week_calendar number_of_weeks: 3,  events: @bookings do |date, bookings| %>
   <div class="calender_date"><%= date.to_s[-2..-1] %></div>
   <br />
@@ -24,7 +25,7 @@
 
         <% if booking %>
           <div class="calender_div">
-          <%= link_to "#{booking.start_time.strftime("%H:%M")} - #{booking.user.name}" , "/bookings/#{booking.id}", class: "calender_links" %>
+          <%= link_to "#{booking.start_time.strftime("%I:%M %p")} - #{booking.user.name}" , "/bookings/#{booking.id}", class: "calender_links" %>
         <% else %>
           <div>
             <%= link_to pretty_date_time, "/bookings/new?time=#{formatted_date_time}&mikveh_id=#{@mikveh_id}" ,class: "green-booking"%>

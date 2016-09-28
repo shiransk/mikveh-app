@@ -1,13 +1,17 @@
 <h1>Dashboard</h1>
 
-  <ul class="info" style="list-style: none;">
-    <li>Balanit- <%= current_user.name.capitalize %> </li>
-    <li>Mikveh- <%= @mikveh.name.capitalize  %></li>
-    <li>Location- <%= @mikveh.location.capitalize %></li>
-    <li>Phone number- <%= @mikveh.phone_number %></li>
+<ul class="ul_mikveh" style="list-style: none;">
+    <li><span class="mikveh_span">BALANIT</span></li>  
+    <li> <%= current_user.name.capitalize %> </li>
+    <li> <span class="mikveh_span">MIKVEH</span></li>
+    <li><%= current_user.mikveh.name %> </li>
+    <li><span class="mikveh_span">EMAIL</span></li>  
+    <li><%= current_user.email %></li> 
+    <li> <span class="mikveh_span">PHONE NUMBER</span></li>
+    <li><%= current_user.phone_number %></li> 
+  
   </ul>
   <%= week_calendar  events: @bookings  do |date, bookings| %> 
- 
    <div class="calender_date"><%= date.to_s[-2..-1] %></div>
 
   <% bookings.each do |booking| %>
@@ -33,7 +37,7 @@
           <%= link_to "#{booking.start_time.strftime("%I:%M %p")}- #{booking.user.name}" , "/bookings/#{booking.id}", class: "calender_booking" %>
         <% else %>
           <div>
-            <%= link_to pretty_date_time, "/bookings/new?time=#{formatted_date_time}&mikveh_id=#{@mikveh_id}" ,class: "green-booking"%>
+            <%= link_to pretty_date_time, "/bookings/new?time=#{formatted_date_time}&mikveh_id=#{@bookings.last.mikveh.id}" ,class: "green-booking"%>
         <% end %>
       </div>
           <% slot_start_time += 30.minutes %>
@@ -43,7 +47,7 @@
 
 <table class="table table-hover">
   <tr>
-    <th>client name</th>
+    <th>Client Name</th>
     <th>Date & Time </th>
 <!--     <th>Start Chat</th> -->
     <th>Cancel Apoitment</th>
@@ -52,7 +56,7 @@
 
   <tr>
    <% @bookings.each do |booking| %>
-    <td><%=link_to booking.user.name.capitalize, "bookings/#{booking.id}"  %></td>
+    <td><%=link_to booking.user.name.capitalize, "bookings/#{booking.id}"%></td>
     <td><%= booking.start_time.strftime("%m/%d %H:%M %p") %></td>
     <td> <%= link_to 'Cancel', "/bookings/#{booking.id}", method: :delete %></td>
   </tr>

@@ -6,10 +6,13 @@
             <!-- .container -->
             <div class="container">
                 
-                <div class="navbar-brand">
+              <div class="navbar-brand">
+                <ul class="nav navbar-nav">
                   <%  if current_user %>
-                  <li class="nav navbar-nav"> <%= link_to "MikvehApp", '/'%></li>
+                  <li style="color: orange;"> <%= link_to image_tag("mikveh-finder-logo.png"), '/'%></li>
                   <% end %>
+                  
+                </ul>
                 </div>
                 
                 <ul class="nav navbar-nav">
