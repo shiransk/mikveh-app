@@ -1,15 +1,15 @@
 
 <% content_for :title, 'admin | Action Cable Chat' %>
-<div class="header">
+<div class="header" data-spy="affix" data-offset-top="25">
   <div class="team-menu">ActionCable</div>
 
   <div class="channel-menu">
-    <span class="channel-menu_name"><span class="channel-menu_prefix"></span><a href="/"><button class="chat_butten">Back To App</button></a> </span>
+    <span class="channel-menu_name"><span class="channel-menu_prefix"></span></span>
   </div>
   <div class="main">
     <div class="listings">
       <div class="listings_channels">
-        <h2 class="listings_header">Channels</h2>
+        <h2 class="listings_header" style="font-size: 13px;">Channels</h2>
         <ul class="channel_list">
           <li class="channel <% if params[:id] == '1' %>active<% end %>">
             <a class="channel_name" href="/chats/1"><span class="unread "><%= @general_chat.messages.where('read=?',false).count %></span><span><span class="prefix">#</span>general</span></a>
@@ -22,7 +22,7 @@
         </ul>
       </div>
       <div class="listings_direct-messages">
-        <h2 class="listings_header">Direct Messages</h2>
+        <h2 class="listings_header" style="font-size: 13px;">Direct Messages</h2>
         <ul class="channel_list">
 
         <% @chat_rooms.each do |chat_room| %>
@@ -44,7 +44,7 @@
   <%= render @messages %>
 </div>
 
-<div class="footer">
+<div class="chat_input">
   <div class="user-menu">
     <span class="user-menu_profile-pic"></span><span class="user-menu_username"><%= current_user.email %></span>
     <span class="connection_status">online</span>

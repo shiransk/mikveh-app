@@ -4,14 +4,11 @@
   <title>MikvehApp</title>
   <%= csrf_meta_tags %>
 
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-  <% if (params[:controller] == "chat_rooms") %>
-    <%= stylesheet_link_tag 'slack' %>
-  <% else %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <% end %>
 
-  <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono|Nova+Mono" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
 
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfsleNm3WQA0CVYiXRQqcncx0gP3VoR_s"></script>
@@ -19,22 +16,16 @@
 </head>
 
 <body>
-
-  <% if !(params[:controller] == "chat_rooms") %>
     <%= render 'layouts/header' %>
     <%= render 'layouts/flash_messages' %>
-  <% end %>
 
-
-  <div class="container black" >
+  <div class="container-fluid black" >
   <%= yield %>
   </div>
 
-  <% if !(params[:controller] == "chat_rooms") %>
-  <%= render 'layouts/footer' %>
+  <% if params[:controller] != "chat_rooms" %>
+    <%= render 'layouts/footer' %>
   <% end %>
-    
 
-  
 </body>
 </html>

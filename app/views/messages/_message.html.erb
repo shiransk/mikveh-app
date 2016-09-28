@@ -1,11 +1,23 @@
-<div class="message">
-  <a href="" class="message_profile-pic"></a>
-  <a href="" class="message_username"><%= message.user.name %></a>
-  <span class="message_timestamp">
-    <%= message.created_at %>
-  </span>
-  <span class="message_star"></span>
-  <span class="message_content">
-    <%= message.content %>
-  </span>
+<div class="container">
+  <div class="message">
+    <div class="row">
+      <div class="col-md-1">
+        <% if message.user.image_url%>
+          <div class="message_image"><%= image_tag message.user.image_url %></div>
+        <% else  %>
+          <div> <span class="user-menu_profile-pic"></span> </div>
+        <% end %>
+      </div>
+      <div class="col-md-11">
+        <a href="" class="message_username"><%= message.user.name %></a>
+        <span class="message_timestamp">
+          <%= message.created_at %>
+        </span>
+        <span class="message_star"></span>
+        <span class="message_content">
+          <%= message.content %>
+        </span>
+      </div>
+    </div>
+  </div>
 </div>

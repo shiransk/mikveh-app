@@ -62,7 +62,40 @@ before_action :check_mikveh
         render :new_client 
       end
     end
-    
   end
+
+  def show
+    @user = User.find_by(id: params[:id])
+  end
+
+  def edit
+    @user = User.find_by(id: params[:id])
+  end
+
+  def update
+
+    user = User.find_by(id: params[:id])
+    user.update_columns(name: params[:name], email: params[:email],phone_number: params[:phone_number])
+    user.image = params[:image]
+    user.password = "7449675"
+    user.password_confirmation = "7449675"
+    user.save
+    flash[:success] = "User Updated"
+    redirect_to '/'
+
+    # user.name = params[:name]
+    # user.email = params[:email]
+    # user.phone_number = params[:phone_number]
+    # user.image = params[:image]
+    # if user.save
+    #   flash[:success] = "User Updated"
+    #   redirect_to '/'
+    # else
+    #   dsads
+    #   flash[:danger] = "User Not Updated"
+    #   redirect_to '/'
+    # end
+  end
+    
 
 end

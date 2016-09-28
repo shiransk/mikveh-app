@@ -15,6 +15,9 @@ get '/calendar', to: 'users#calendar'
 get '/new_client', to:'users#new_client'
 get '/new_balanit', to:'users#new_balanit'
 post '/users', to:'users#create'
+get '/users/:id/edit', to: 'users#edit'
+get '/users/:id', to: 'users#show'
+patch '/users/:id', to: 'users#update'
 
 #sessions
 get '/login', to: 'sessions#new'

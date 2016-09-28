@@ -1,4 +1,4 @@
-.reset, html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+/*.reset, html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -29,7 +29,7 @@ body {
   padding-bottom: 64px;
   background-color: white;
 }
-
+*/
 blockquote {
   quotes: none;
 }
@@ -128,19 +128,24 @@ main {
 }
 
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
+  /*position: fixed;*/
   height: 53px;
   width: 100%;
+  /*left: 0px;*/
+  margin-left: -15px;
+}
+
+.affix {
+  top: 0px;
+  left: 15px;
 }
 
 .main {
   height: 100%;
 }
 
-.footer {
-  position: absolute;
+.chat_input {
+  position: relative;
   left: 0;
   bottom: 0;
   height: 64px;
@@ -155,8 +160,8 @@ main {
   font-weight: 900;
   padding: 0 1rem;
   color: #ffffff;
-  background: #f23409;
-  border-bottom: 2px solid #f23409;
+  background: #ED7705;
+  border-bottom: 2px solid #ED7705;
   float: left;
   cursor: pointer;
 }
@@ -233,6 +238,7 @@ main {
   list-style-type: none;
   text-align: left;
   color: #ab9ba9;
+  margin-left: -30px;
 }
 
 .channel {
@@ -290,13 +296,15 @@ main {
   height: 36px;
   background-image: url(http://findicons.com/icon/download/102283/fh02/300/png);
   background-size: cover;
+
+  margin-right: 25px;
 }
 
 .message_username {
+
   font-weight: 900;
   padding-right: 0.25rem;
   color: #3d3c40 !important;
-  margin-left: 0;
   font-style: normal;
   text-decoration: none;
 }
@@ -322,6 +330,7 @@ main {
 }
 
 .user-menu {
+  position: fixed;
   float: left;
   width: 220px;
   height: 100%;
@@ -333,6 +342,7 @@ main {
   position: fixed;
   bottom: 0;
   left: 0;
+  margin-bottom: 25px;
 }
 
 .user-menu_profile-pic {
@@ -378,7 +388,7 @@ main {
 
 .input-box_text {
   font-size: 0.95rem;
-  width: 90%;
+  width: 75%;
   margin-left: 2%;
   margin-bottom: auto;
   line-height: 1.2rem;
@@ -391,6 +401,7 @@ main {
   bottom: 0;
   min-height: 41px !important;
   padding: 9px 5px 9px 8px;
+  position: fixed;
 }
 .channel a {
   color: white;

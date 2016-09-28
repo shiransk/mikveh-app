@@ -7,7 +7,7 @@
     </ul>
   </div> 
     <%= week_calendar number_of_weeks: 3,  events: @bookings do |date, bookings| %>
-      <%= date %>
+      <%= date.to_s[-2..-1] %>
     <% bookings.each do |booking| %>
       <div>
          <div class="blue-booking"><%= booking.mikveh.name %></div> 

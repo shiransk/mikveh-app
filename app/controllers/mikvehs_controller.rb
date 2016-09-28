@@ -46,6 +46,7 @@ before_action :check_mikveh , except: [:create, :new]
     mikveh.shul = params[:shul]
     mikveh.supervision = params[:supervision]
     mikveh.image = params[:image]
+    mikveh.phone_number =params[:phone_number]
     if mikveh.save
       flash[:success] = "Mikveh Updated"
       redirect_to "/mikvehs/#{mikveh.id}"

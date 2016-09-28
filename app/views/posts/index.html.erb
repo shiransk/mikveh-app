@@ -1,5 +1,5 @@
 
- <center> <a href='/posts/new'><button> Post a question Here </button></a></center>
+ <center> <a href='/posts/new'><button style="margin: 9px;"> Post a question Here </button></a></center>
 <% if !current_user.rabbi %>
   <% @posts.sort.reverse.each do |post| %>
     <% if post.comments.any? %>
