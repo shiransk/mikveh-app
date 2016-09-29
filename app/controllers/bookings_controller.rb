@@ -34,7 +34,10 @@ before_action :check_mikveh
       flash[:success] = "apoitment was booked!"
       UserMailer.booking_email(current_user).deliver_later
       UserMailer.booking_email_balanit(current_user).deliver_later
+      if ChatRoom.where(user_id: booking.mikveh.user.id, recipient_id: booking.user.id).empty?
       ChatRoom.create(user_id: booking.mikveh.user.id, recipient_id: booking.user.id)
+      end
+
       if current_user.balanit
         redirect_to '/calendar' 
       else

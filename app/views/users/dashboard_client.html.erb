@@ -1,10 +1,13 @@
 <h1>Dashboard</h1>
   <div>
-     <ul class="info" style="list-style: none;">
-       <li>Name-  <%= current_user.name %></li>
-       <li>Email- <%= current_user.email %> </li>
-       <li>Phone- <%= current_user.phone_number %></li> 
-    </ul>
+<ul class="ul_mikveh" style="list-style: none;">
+    <li><span class="mikveh_span">NAME</span></li>  
+    <li> <%= current_user.name.capitalize %> </li>
+    <li> <span class="mikveh_span">EMAIL</span></li>
+    <li><%= current_user.email %> </li>
+    <li> <span class="mikveh_span">PHONE NUMBER</span></li>
+    <li><%= current_user.phone_number %></li> 
+  </ul>
   </div> 
     <%= week_calendar number_of_weeks: 3,  events: @bookings do |date, bookings| %>
       <%= date.to_s[-2..-1] %>

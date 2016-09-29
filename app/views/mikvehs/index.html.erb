@@ -32,8 +32,8 @@
             <tr ng-repeat="mikveh in mikvehs | filter: nameAndLocation | orderBy: orderAttr:desc" >
               <td><%= link_to "{{mikveh.name}}", "/mikvehs/{{mikveh.id}}" %></td>
               <td>{{mikveh.location}}</td>
-              <td>18:00PM - 10:30PM</td>
-              <td class="red-booking"><%= link_to 'Check Avilibilaty', "/client_calender?id={{mikveh.id}}" %></td>
+              <td style="white-space: nowrap;">18:00PM - 10:30PM</td>
+              <td class="red-booking"><%= link_to 'Check Availability', "/client_calender?id={{mikveh.id}}" %></td>
             </tr>
           </table>
 

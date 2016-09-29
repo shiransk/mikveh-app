@@ -56,7 +56,7 @@
 
 .ul_mikveh {
   list-style: none;
-  padding-right: 400px !important;
+  // padding-right: 400px !important;
   -webkit-padding-start: 0px ;
 
 }
@@ -200,15 +200,19 @@ html {
     min-height: 100%;
 }
 body {
-    margin: 0 0 100px; /* bottom = footer height */
+    margin: 0 0 100px; //bottom = footer height
 }
 footer {
     position: absolute;
     left: 0;
     bottom: 0;
-/*    height: 100px;*/
+    height: 100px;
     width: 100%;
 }
+
+.responsejs {
+
+} 
 
 .user-menu{
     position: fixed;
@@ -234,7 +238,8 @@ footer {
 
 .message_image {
   img {
-    height: 50px;
+    height: 70px;
+    width: 70px;
   }
 }
 
@@ -255,6 +260,10 @@ a, a:visited {
   padding-left: 0px;
   -webkit-padding-start: 0px ;
 
+}
+
+.post_new {
+  padding-bottom: 10px;
 }
 
 // .calender_links  {
