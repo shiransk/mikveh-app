@@ -1,7 +1,7 @@
 
 <% content_for :title, 'admin | Action Cable Chat' %>
 <div class="header" data-spy="affix" data-offset-top="25">
-  <div class="team-menu">ActionCable</div>
+  <div class="team-menu">Chat Room</div>
 
   <div class="channel-menu">
     <span class="channel-menu_name"><span class="channel-menu_prefix"></span></span>
@@ -28,7 +28,7 @@
         <% @chat_rooms.each do |chat_room| %>
           <li class="channel <% if params[:id] == chat_room.id.to_s %>active<% end %>">
               <% if chat_room.user == current_user && chat_room.room_type != "mikveh_chat" && chat_room.room_type != "general_chat" %>
-                <%= link_to User.find_by(id: chat_room.recipient_id).name, "/chats/#{chat_room.id}" if User.find_by(id: chat_room.recipient_id) %> 
+                <%= link_to User.find_by(id: chat_room.recipient_id).name, "/chats/#{chat_room.id}" %>
               <% else %>
                 <%= link_to chat_room.user.name, "/chats/#{chat_room.id}" %>
               <% end %>

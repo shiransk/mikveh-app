@@ -13,6 +13,6 @@ class Mikveh < ApplicationRecord
   # end
   
   def chatroom
-    ChatRoom.find_by(user_id: user_id, room_type: 'mikveh_chat')
+    return ChatRoom.find_by(user_id: self.user_id, room_type: 'mikveh_chat')
   end
 end

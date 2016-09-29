@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment Posted"
       redirect_to '/posts'
     else
-      flash[:danger] = "Somthing went wrong"
+      flash[:danger] = "Something went wrong"
       redirect_to '/posts'
     end
   end
@@ -43,7 +43,7 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment Deleted"
       redirect_to '/posts'
     else
-      flash[:danger] = "Comment not Deleted!!!"
+      flash[:danger] = "Comment not Deleted!"
       redirect_to '/posts'
     end
   end

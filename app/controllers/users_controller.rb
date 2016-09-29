@@ -77,8 +77,8 @@ before_action :check_mikveh
     user = User.find_by(id: params[:id])
     user.update_columns(name: params[:name], email: params[:email],phone_number: params[:phone_number])
     user.image = params[:image]
-    user.password = "7449675"
-    user.password_confirmation = "7449675"
+    user.password = 
+    user.password_confirmation = 
     user.save
     flash[:success] = "User Updated"
     redirect_to '/'

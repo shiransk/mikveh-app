@@ -9,7 +9,7 @@
     # binding.pry
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id 
-      flash[:success] = "You are loged in #{user.name}"
+      flash[:success] = "You are signed in #{user.name}"
       if current_user && current_user.balanit
         redirect_to '/dashboard_balanit'
       else
@@ -23,7 +23,7 @@
 
   def destroy
     session[:user_id] = nil
-    flash[:danger] = "You are loged of"
+    flash[:danger] = "You are no longer signed in."
     redirect_to '/'
   end
   

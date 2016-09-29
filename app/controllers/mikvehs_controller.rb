@@ -16,7 +16,7 @@ before_action :check_mikveh , except: [:create, :new]
       redirect_to "/mikvehs/#{mikveh.id}"
         end
     else
-      flash[:danger] = "Mikveh not creted"
+      flash[:danger] = "Mikveh not created"
       redirect_to '/dashboard_balanit'
     end  
   end

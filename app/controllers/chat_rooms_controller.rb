@@ -9,8 +9,14 @@ class ChatRoomsController < ApplicationController
     end
 
     @mikveh_chats = current_user.mikveh_chat_rooms
+    puts "****************"
+    puts ""
+    puts @mikveh_chats
+    puts ""
+    puts "****************"
+
     @chat_rooms = current_user.single_chat_rooms
-    @messages = @chat_room.messages
+    @messages = @chat_room.messages.sort
     @general_chat = ChatRoom.find_by(id: 1)
   end
 

@@ -15,8 +15,8 @@
   <table class= "table table-hover">
     <tr>
       <th>Name</th>
-      <th>User email</th>
-      <th>phone #</th>
+      <th>Email</th>
+      <th>Phone #</th>
       <th>Time & Date</th>
       <th>Cancel</th>
       <th>Chat</th>
@@ -29,7 +29,7 @@
       <th> <%= @booking.user.phone_number %></th>
       <td><%= @booking.start_time.strftime("%m-%d-%y %H:%M") %></td>
         <td> <%= link_to 'Cancel', "/bookings/#{@booking.id}", method: :delete %></td>
-        <td><%= link_to 'Begain Chat', "/chats/#{@chat.id}" if @chat%></td>
+        <td><%= link_to 'Begin Chat', "/chats/#{@chat.id}" if @chat%></td>
     <% end %>
     </tr>
   </table>

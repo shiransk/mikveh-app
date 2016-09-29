@@ -31,7 +31,7 @@ before_action :check_mikveh
     end
 
     if booking && booking.save 
-      flash[:success] = "apoitment was booked!"
+      flash[:success] = "Appointment was booked!"
       UserMailer.booking_email(current_user).deliver_later
       UserMailer.booking_email_balanit(current_user).deliver_later
       if ChatRoom.where(user_id: booking.mikveh.user.id, recipient_id: booking.user.id).empty?
@@ -44,7 +44,7 @@ before_action :check_mikveh
         redirect_to "/dashboard_client"
       end
     else
-      flash[:danger] = "Booking Failed!!!"
+      flash[:danger] = "Booking Failed!"
       redirect_to '/'  
     end      
   end
@@ -58,14 +58,14 @@ before_action :check_mikveh
     booking.assign_attributes(start_time: params[:start_time], mikveh_id: params[:mikveh_id], user_id: params[:user_id])
     # binding.pry
     if booking.save
-      flash[:success] = "apoitment updated"
+      flash[:success] = "Appointment updated"
       if current_user.balanit 
         redirect_to '/dashboard_balanit'
       else
         redirect_to '/dashboard_client'
       end
     else
-      flash[:danger] = "apoitment not updated!!!"
+      flash[:danger] = "Appointment not updated!"
       redirect_to '/'
     end
 
@@ -81,7 +81,7 @@ before_action :check_mikveh
     Booking.find_by(id: params[:id]).destroy
     UserMailer.cancel_boooking_email(booking_deleted).deliver_later
     UserMailer.cancel_boooking_email_balanit(booking_deleted).deliver_later
-    flash[:danger] = 'Apoitment was canceld'
+    flash[:danger] = 'Appointment was canceled'
     if current_user && current_user.balanit
       redirect_to '/dashboard_balanit'
     else

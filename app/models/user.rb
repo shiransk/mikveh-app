@@ -35,16 +35,21 @@ class User < ApplicationRecord
     mikveh_chats = []
 
     mikvehs = Mikveh.where(id: self.bookings.pluck(:mikveh_id))
-
+    puts "******"
     mikvehs.each do |mikveh|
+      puts 1
       if mikveh.chatroom
+        puts 2
         mikveh_chats << mikveh.chatroom
       end
     end
 
     if self.mikveh && self.mikveh.chatroom && !mikveh_chats.include?(self.mikveh.chatroom)
+      puts 3
       mikveh_chats << self.mikveh.chatroom
     end
+    puts "******"
+    
 
     return mikveh_chats.uniq
   end
