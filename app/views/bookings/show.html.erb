@@ -1,36 +1,23 @@
-<h1>Your Upcoming Appointment</h1>
-<% if !current_user.balanit %>
-  <table class= "table table-hover">
-    <tr>
-      <th>Place</th>
-      <th>Time & Date</th>
-    </tr>
-    <rt>
-      <td><%= @booking.mikveh.name %></td>
-      <td><%= @booking.start_time.strftime("%m-%d-%y %H:%M") %></td>
-    </rt>
-  </table>
-<% else %>
-
-  <table class= "table table-hover">
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone #</th>
-      <th>Time & Date</th>
-      <th>Cancel</th>
-      <th>Chat</th>
-    </tr>
-    <tr>
-
-    <% if current_user.mikveh.id == @booking.mikveh.id %>
-      <td> <%= @booking.user.name %></td>
-      <td> <%= @booking.user.email %></td>
-      <th> <%= @booking.user.phone_number %></th>
-      <td><%= @booking.start_time.strftime("%m-%d-%y %H:%M") %></td>
-        <td> <%= link_to 'Cancel', "/bookings/#{@booking.id}", method: :delete %></td>
-        <td><%= link_to 'Begin Chat', "/chats/#{@chat.id}" if @chat%></td>
-    <% end %>
-    </tr>
-  </table>
-<% end %>
+<div class="row">
+  <div class="col-md-4"></div>
+    <div class="col-md-4 bookings-show">
+      <h3>Appointment Information</h3>
+        <% if !current_user.balanit %>
+          <ul >
+            <li>Place- <%= @booking.mikveh.name %></li>
+            <li>Time & Date- <%= @booking.start_time.strftime("%m-%d-%y %H:%M") %></li>
+          </ul>
+        <% else %>
+          <ul>
+          <% if current_user.mikveh.id == @booking.mikveh.id %>
+          <li>Name- <%= @booking.user.name %></li>
+          <li>Email- <%= @booking.user.email %></li>
+          <li>Phone- <%= @booking.user.phone_number %></li>
+          <li>Time & Date- <%= @booking.start_time.strftime("%m/%d %H:%M%p") %></li>
+          <li>Cancel-<%= link_to 'Cancel', "/bookings/#{@booking.id}", method: :delete %></li>
+          <li>Chat- <%= link_to 'Begin Chat',"/chats/#{@chat.id}" if @chat%></li>
+        </ul>
+          <% end %>
+      <% end %>
+    </div>
+</div>
