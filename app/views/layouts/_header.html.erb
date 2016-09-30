@@ -1,0 +1,50 @@
+    <header id="header" class="page-header">
+        
+        <!-- #navigation -->
+        <nav id="navigation" class="navbar">
+            
+            <!-- .container -->
+          
+                
+              <div class="navbar-brand">
+                <ul class="nav navbar-nav">       
+                  <li style="color: orange;"> <%= link_to image_tag("mikveh-finder-logo.png"), '/'%></li>
+                </ul>
+                </div>
+                
+                <ul class="nav navbar-nav">
+                <%  if current_user && current_user.balanit %>
+                  <li role="presentation"> <%= link_to 'Dashboard', "/dashboard_balanit" %></li>
+                  <li><%= link_to 'Calendar', '/calendar' %></li>
+                  <% elsif current_user %>
+                  <li role="presentation"> <%= link_to 'Dashboard', "/dashboard_client" %></li>
+                  <% end %>
+                  <li role="presentation"> <%= link_to 'Find A Mikveh', "/" %></li>
+                  <li role="presentation"> <%= link_to 'Ask The Rabbi', "/posts" %></li>
+                  <li role="presentation"> <%= link_to 'Chat Room', "/chats/1" %></li>
+                  <%  if current_user %>
+                  <li class="menu-btn active" role="presentation"> <%= link_to 'Logout', "/logout" %></li>
+                  <% else %>
+                  <li role="presentation"> <%= link_to 'User Signup', "/new_client" %></li>
+                  <li role="presentation"> <%= link_to 'Balanit Signup', "/new_balanit" %></li>
+                  <li class="menu-btn active" role="presentation"> <%= link_to 'Login', "/login" %></li>
+                  <% end %>
+
+                </ul>
+                
+            
+            <!-- .container end -->
+            
+        </nav>
+        <!-- #navigation end -->
+        
+<!--         <div class="page-header-overlay">
+            <div class="container">
+              <div class="page-header-text">
+                  <h1>Welcome to mikveh App</h1>
+                    <h3>Bellow is the list of avalible mikvehs</h3>
+                </div>
+            </div>
+        </div> -->
+        
+    </header>

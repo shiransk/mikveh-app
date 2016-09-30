@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920025414) do
+ActiveRecord::Schema.define(version: 20160925201632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 20160920025414) do
     t.datetime "start_time"
   end
 
+  create_table "chat_rooms", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "recipient_id"
+    t.string   "room_type"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.integer  "post_id"
     t.text     "text"
@@ -31,16 +39,27 @@ ActiveRecord::Schema.define(version: 20160920025414) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text     "content"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "user_id"
+    t.integer  "chat_room_id"
+    t.boolean  "read",         default: false
+  end
+
   create_table "mikvehs", force: :cascade do |t|
     t.string   "name"
     t.string   "location"
-    t.string   "rooms"
+    t.string   "phone_number"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.float    "latitude"
     t.float    "longitude"
     t.string   "image"
+    t.string   "supervision"
+    t.string   "shul"
   end
 
   create_table "posts", force: :cascade do |t|

@@ -1,0 +1,44 @@
+<%= form_tag "/mikvehs/#{@mikveh.id}", method: :patch,multipart: true  do %>
+
+<div>
+  <%= label_tag :name %>
+  <%= text_field_tag :name, @mikveh.name, class: 'form-control' %>
+</div>
+
+
+<div>
+  <%= label_tag :location %>
+  <%= text_field_tag :location, @mikveh.location, class: 'form-control' %>
+</div>
+
+
+<div>
+  <%= label_tag :phone_number %>
+  <%= text_field_tag :phone_number, @mikveh.phone_number, class: 'form-control' %>
+</div>
+
+<div>
+  <%= label_tag :supervision %>
+  <%= text_field_tag :supervision, @mikveh.supervision, class: 'form-control' %>
+</div>
+
+<div>
+  <%= label_tag :shul %>
+  <%= text_field_tag :shul, @mikveh.shul, class: 'form-control' %>
+</div>
+
+
+<div>
+  <%= hidden_field_tag :user_id, current_user.id %>
+</div>
+
+<div class="field">
+  <%= label_tag :image %><br>
+  <%= file_field_tag :image %>
+</div>
+
+
+
+ <%= submit_tag "Submit" %>
+
+<% end %>

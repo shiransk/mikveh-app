@@ -10,6 +10,7 @@ gem 'bootstrap3-datetimepicker-rails'
 gem 'carrierwave'
 gem 'fog'
 gem 'mini_magick'
+gem 'rails_12factor', group: :production
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem "simple_calendar", "~> 2.0"
@@ -18,6 +19,7 @@ gem 'sass-rails', '~> 5.0'
 gem "font-awesome-rails"
 gem 'geocoder'
 gem 'dotenv-rails'
+gem 'faker'
 # gem 'bootstrap-sass'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

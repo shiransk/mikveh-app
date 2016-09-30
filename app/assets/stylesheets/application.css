@@ -15,11 +15,12 @@
  *= require slick-theme
  *= require jquery.fancybox
  *= require style
+ *= require slack
  *= require bootstrap-datetimepicker
  *= require simple_calendar
  *= require ie-older
  *= require no-js
  *= require animate
- *= require_tree .
+ *= require my_style
  *= require_self
  */

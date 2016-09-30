@@ -1,35 +1,32 @@
-<div ng-app="app" class="row" ng-controller="mikvehCtrl" ng-init="setup()">
-  <div class="col-md-1"></div>
-    <div class="col-md-5">
-      <table class="table table-hover">
-        <tr>
-          <th>Name</th>
-          <th>location</th>
-          <th>rooms</th>
-          <th>Check Avilibilaty</th>
-        </tr>
-
-        <tr>
-          <td><%= @mikveh.name  %></td>
-          <td><%= @mikveh.location  %></td>
-          <td><%= @mikveh.rooms %></td>
-          <td class="red-booking"><%= link_to 'Check Avilibilaty', "/client_calender?id=#{@mikveh.id}" %></td>
-        </tr>
-      </table>
-    </div>
-      <div class="col-md-5">
-        <div id="map_show" style="width: 500px; height: 400px;"></div>
-      </div>
+<div ng-app="app" class="row"  ng-controller="mikvehCtrl" ng-init="setup()"> 
+  <div class="col-md-3">
+    <h3><%= @mikveh.name  %></h3>
+      <ul class="ul_mikveh">
+       <li><span class="mikveh_span">LOCATION</span></li> 
+       <li><%= @mikveh.location %></li>
+       <li> <span class="mikveh_span">SUPERVISION</span></li>
+       <li><%= @mikveh.supervision %></li>
+       <li><span class="mikveh_span">SHUL</span></li>  
+       <li><%= @mikveh.shul %>  </li>
+       <li> <span class="mikveh_span">PHONE NUMBER</span></li> 
+       <li><%= @mikveh.phone_number %> </li>
+       <li class='green-booking' style="font-size: 15px;"> <%= link_to 'Check Availabilty', "/client_calender?id=#{@mikveh.id}", class: "green-booking" %> </li> 
+     </ul>
+  </div>
+  <div class="col-md-4">
+    
+    <%= image_tag @mikveh.image_url.to_s, class: 'pic_size' %>
+  </div>
+    <div id="map_show" class="map_css col-md-5" style="width: 450px; height: 450px;"></div>
 </div>
 
 <p>
-  <%= image_tag @mikveh.image_url.to_s %>
 </p>
 
 <script type="text/javascript">
   
   var map = new google.maps.Map(document.getElementById('map_show'), {
-    zoom: 10,
+    zoom: 12,
     center: new google.maps.LatLng(<%= @mikveh.latitude %>, <%= @mikveh.longitude %>),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });

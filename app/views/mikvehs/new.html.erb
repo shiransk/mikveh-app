@@ -1,20 +1,30 @@
-<%= form_tag '/mikveh', method: :post do %>
+<%= form_tag '/mikvehs', method: :post,multipart: true  do %>
 
 <div>
   <%= label_tag :name %>
-  <%= text_field_tag :name %>
+  <%= text_field_tag :name, "",class: 'form-control' %>
 </div>
 
 
 <div>
   <%= label_tag :location %>
-  <%= text_field_tag :location %>
+  <%= text_field_tag :location, "",class: 'form-control' %>
+</div>
+
+<div>
+  <%= label_tag :supervision %>
+  <%= text_field_tag :supervision, "",class: 'form-control' %>
+</div>
+
+<div>
+  <%= label_tag :shul %>
+  <%= text_field_tag :shul, "",class: 'form-control' %>
 </div>
 
 
 <div>
-  <%= label_tag :rooms %>
-  <%= text_field_tag :rooms %>
+  <%= label_tag :phone_number %>
+  <%= text_field_tag :phone_number , "",class: 'form-control'%>
 </div>
 
 
@@ -24,7 +34,7 @@
 
 <div class="field">
   <%= label_tag :image %><br>
-  <%= file_field_tag :image %>
+  <%= file_field_tag :image,class: 'form-control' %>
 </div>
 
 

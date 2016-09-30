@@ -25,9 +25,13 @@
 }
 
 .red-booking {
-  color: red;
+  color: red !important;
   font-weight: bold !important;
 
+}
+
+.calender_booking {
+    color: white;
 }
 
 .red-post {
@@ -36,9 +40,46 @@
 
 }
 
+.area_text {
+  height: 200px !important;
+}
+
+.pic_size {
+  height: 350px !important;
+  width: 370px !important;
+  margin: 30px 0px 0px 0px ;
+}
+
+.map_css {
+  margin: 30px 0px 0px 0px;
+}
+
+.ul_mikveh {
+  list-style: none;
+  // padding-right: 400px !important;
+  -webkit-padding-start: 0px ;
+
+}
+
+.mikveh_span {
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
+}
+
+.panel-title {
+  display: block;
+  padding: 10px  15px;
+}
+
+.panel-heading {
+  padding: 0 ;
+}
+
 
 .green-booking {
   color: green !important;
+  font-weight: bold !important;
 }
 
 
@@ -70,19 +111,32 @@
     color: #337AB7;
 }
 
-.blue-nav {
-  border: 1px solid #bdc3c7;
-  padding: 9px 20px 10px;
+.left-mikvehtab {
+  margin-left: 90px;
+}
 
 
-  &.active {
-    background-color: #41bedd;
+.mikvehTabs {
+
+  // Tab when not active / default
   a {
-    background-color: #41bedd;
-  }
+    color: #EC502C !important;
+    background-color: white;
+    border: 1px solid #EC502C !important; 
   }
 
+  // Tab when active
+  &.active {
+    a {
+      background-color: #EC502C !important;
+      color: white !important;
+    }
+  }
 
+}
+
+.nav_link {
+  margin: 18px 0 5px 0;
 }
 
 .post-show {
@@ -93,18 +147,136 @@
   border-radius: 25px; 
 }
 
+.calender_div {
+  background-color: #FFB286;
+  width: 100% ;
+}
+
+.calender_date {
+  text-align: right;
+  font-size: 16px;
+  font-weight: bold;
+  margin: -5px;
+  color: black;
+}
+
+.simple-calendar {
+font-family: 'Open Sans', sans-serif;
+
+  .day {
+  border-style: dotted;
+   border-width: 1px;
+   border-color: #DDDDDD;
+
+  }
+
+  .wday-0 {
+
+  }
+
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month { }
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+}
+
 
 html {
     position: relative;
     min-height: 100%;
 }
 body {
-    margin: 0 0 100px; /* bottom = footer height */
+    margin: 0 0 100px; //bottom = footer height
 }
 footer {
     position: absolute;
     left: 0;
     bottom: 0;
-/*    height: 100px;*/
+    height: 100px;
     width: 100%;
 }
+
+.responsejs {
+
+} 
+
+.user-menu{
+    position: fixed;
+    float: left;
+    width: 220px;
+    height: 100%;
+    cursor: pointer;
+    background: #f23409;
+    border-top: 2px solid #372c36;
+    padding: 7px 0 9px 8px;
+    height: 4rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 45px;
+}
+
+.info {
+  margin:0;
+  padding:0 0px;
+} 
+
+
+.message_image {
+  img {
+    height: 70px;
+    width: 70px;
+  }
+}
+
+
+a, a:visited {
+  font-weight: bold;
+  color: #EC502C;
+  -webkit-transition:color .2s ease, background-color .2s ease, background .2s ease, border .2s ease, outline .2s ease, opacity .2s ease-in-out;
+  transition:color .2s ease, background-color .2s ease, background .2s ease, border .2s ease, outline .2s ease, opacity .2s ease-in-out;
+}
+
+.calender_div a, .calender_div a:visited, .channel_list li a{
+  color: white;
+}
+
+#header .navbar-brand img {
+  height: 23px;
+  padding-left: 0px;
+  -webkit-padding-start: 0px ;
+
+}
+
+.post_new {
+  padding-bottom: 10px;
+}
+
+.bookings-show {
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 20px;
+  font-weight: bold;
+  background-color: #FFB286;
+  font-size: 18px;
+  color: black;
+  padding: 0px 0px 10px 50px;
+  border-radius: 25px; 
+}
+
+// .calender_links  {
+//   color: black;
+// }
