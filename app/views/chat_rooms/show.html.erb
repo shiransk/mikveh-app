@@ -12,7 +12,7 @@
         <h2 class="listings_header" style="font-size: 13px;">Channels</h2>
         <ul class="channel_list">
           <li class="channel <% if params[:id] == '1' %>active<% end %>">
-            <a class="channel_name" href="/chats/1"><span class="unread "><%= @general_chat.messages.where('read=?',false).count %></span><span><span class="prefix">#</span>general</span></a>
+            <a class="channel_name" href="/chats/1"><span class="unread "><%= @general_chat.messages.where('read=?',false).count %></span><span><span class="prefix">#</span>General</span></a>
           </li>
        <% @mikveh_chats.each do |mikveh_chat|  %>
           <li class="channel <% if params[:id] == mikveh_chat.id.to_s %>active<% end %>">

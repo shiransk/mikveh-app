@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-2"></div>
+  <div class="col-md-4"></div>
   <%= form_tag "/bookings", method: :post do %>
     <div>
       <% if current_user && current_user.balanit && current_user.mikveh.id == @mikveh_id.to_i%>
@@ -16,7 +16,7 @@
           <%= hidden_field_tag :user_id, current_user.id %>
       <% end %>
     </div>
-      <div class="col-md-8" style="text-align: center;">
+      <div class="col-md-4 bookings-show" style="text-align: center;">
         <h3 class="green-booking ">Appointment Time: <%= human_time(@clean_time) %></h3>
         <div>
           <%= hidden_field_tag :start_time, @booking_time, class: 'form-control' %>

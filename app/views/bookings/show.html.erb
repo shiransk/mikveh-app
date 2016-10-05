@@ -14,8 +14,8 @@
           <li>Email- <%= @booking.user.email %></li>
           <li>Phone- <%= @booking.user.phone_number %></li>
           <li>Time & Date- <%= @booking.start_time.strftime("%m/%d %H:%M%p") %></li>
-          <li>Cancel-<%= link_to 'Cancel', "/bookings/#{@booking.id}", method: :delete %></li>
-          <li>Chat- <%= link_to 'Begin Chat',"/chats/#{@chat.id}" if @chat%></li>
+          <li><%= link_to 'Cancel', "/bookings/#{@booking.id}", method: :delete, class: "red-booking" %></li>
+          <li ><%= link_to 'Start Chat',"/chats/#{@chat.id}", class: "green-booking" if @chat%></li>
         </ul>
           <% end %>
       <% end %>

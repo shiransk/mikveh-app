@@ -81,5 +81,6 @@ test:
 production:
   <<: *default
   database: mikveh-app_production
-  username: mikveh-app
-  password: <%= ENV['MIKVEH-APP_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
